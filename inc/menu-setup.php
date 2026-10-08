@@ -62,9 +62,10 @@ function rjy_group_default_menu_items() {
 function rjy_group_footer_link_groups() {
 	$menu = rjy_group_default_menu_items();
 	$company = array_values( array_filter( $menu[3]['children'], static function ( $item ) { return '/mission-core-values/' !== $item['url'] && '/about/awards-press/' !== $item['url']; } ) );
+	$industries = array_values( array_filter( $menu[2]['children'], static function ( $item ) { return '/industries/transportation-utilities/' !== $item['url']; } ) );
 	return array(
 		array( 'title' => __( 'Services', 'rjy-group' ), 'items' => $menu[1]['children'] ),
-		array( 'title' => __( 'Industries', 'rjy-group' ), 'items' => $menu[2]['children'] ),
+		array( 'title' => __( 'Industries', 'rjy-group' ), 'items' => $industries ),
 		array( 'title' => __( 'Company', 'rjy-group' ), 'items' => array_slice( $company, 0, 6 ) ),
 		array( 'title' => __( 'Support', 'rjy-group' ), 'items' => $menu[4]['children'] ),
 		array( 'title' => __( 'Also', 'rjy-group' ), 'items' => array(
