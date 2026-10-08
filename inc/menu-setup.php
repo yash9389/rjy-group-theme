@@ -61,12 +61,14 @@ function rjy_group_default_menu_items() {
 
 function rjy_group_footer_link_groups() {
 	$menu = rjy_group_default_menu_items();
-	$company = array_values( array_filter( $menu[3]['children'], static function ( $item ) { return '/mission-core-values/' !== $item['url'] && '/about/awards-press/' !== $item['url']; } ) );
+	$company = array_values( array_filter( $menu[3]['children'], static function ( $item ) { return ! in_array( $item['url'], array( '/mission-core-values/', '/about/awards-press/', '/about/founder/' ), true ); } ) );
+	$industries = array_values( array_filter( $menu[2]['children'], static function ( $item ) { return '/industries/transportation-utilities/' !== $item['url']; } ) );
+	$support = array_values( array_filter( $menu[4]['children'], static function ( $item ) { return '/support/resources/' !== $item['url']; } ) );
 	return array(
 		array( 'title' => __( 'Services', 'rjy-group' ), 'items' => $menu[1]['children'] ),
-		array( 'title' => __( 'Industries', 'rjy-group' ), 'items' => $menu[2]['children'] ),
+		array( 'title' => __( 'Industries', 'rjy-group' ), 'items' => $industries ),
 		array( 'title' => __( 'Company', 'rjy-group' ), 'items' => array_slice( $company, 0, 6 ) ),
-		array( 'title' => __( 'Support', 'rjy-group' ), 'items' => $menu[4]['children'] ),
+		array( 'title' => __( 'Support', 'rjy-group' ), 'items' => $support ),
 		array( 'title' => __( 'Also', 'rjy-group' ), 'items' => array(
 			array( 'label' => __( 'Testimonials', 'rjy-group' ), 'url' => '/testimonials/' ),
 			array( 'label' => __( 'Awards & Press', 'rjy-group' ), 'url' => '/about/awards-press/' ),

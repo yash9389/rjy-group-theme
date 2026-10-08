@@ -1,13 +1,14 @@
 <?php
 /** RJY Group theme functions. */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
-define( 'RJY_GROUP_VERSION', '2.0.0' );
+define( 'RJY_GROUP_VERSION', '2.0.1' );
 require_once get_template_directory() . '/inc/icons.php';
 require_once get_template_directory() . '/inc/markup.php';
 require_once get_template_directory() . '/inc/customizer.php';
 require_once get_template_directory() . '/inc/content-types.php';
 require_once get_template_directory() . '/inc/default-pages.php';
 require_once get_template_directory() . '/inc/form-backend.php';
+require_once get_template_directory() . '/inc/cf7-quote.php';
 require_once get_template_directory() . '/inc/menu-setup.php';
 require_once get_template_directory() . '/inc/content-migration.php';
 require_once get_template_directory() . '/inc/internal-pages.php';

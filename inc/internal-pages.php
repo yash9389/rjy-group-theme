@@ -96,6 +96,9 @@ function rjy_group_tile_grid( $kind ) {
 
 /** ContactForm, wired to the WordPress enquiry handler in inc/form-backend.php. */
 function rjy_group_contact_form( $page = array(), $compact = false ) {
+	if ( rjy_group_render_cf7_form( $page, $compact ) ) {
+		return;
+	}
 	$status = isset( $_GET['contact'] ) ? sanitize_key( wp_unslash( $_GET['contact'] ) ) : '';
 	if ( 'success' === $status ) {
 		?><div class="form-confirmation" id="enquiry" role="status"><?php echo rjy_group_icon( 'circle-check' ); ?><h3><?php esc_html_e( 'Request details sent.', 'rjy-group' ); ?></h3><p><?php echo esc_html( sprintf( __( 'Thank you. Your enquiry has been delivered and our team will be in touch shortly. For anything urgent, call RJY Group or email %s.', 'rjy-group' ), rjy_group_contact_mod( 'rjy_email' ) ) ); ?></p><a href="<?php echo esc_url( rjy_group_phone_href( rjy_group_contact_mod( 'rjy_toll_free' ) ) ); ?>"><?php echo esc_html( sprintf( __( 'Toll-Free: %s', 'rjy-group' ), rjy_group_contact_mod( 'rjy_toll_free' ) ) ); ?></a></div><?php
