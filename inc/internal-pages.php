@@ -96,7 +96,7 @@ function rjy_group_tile_grid( $kind ) {
 
 /** ContactForm, wired to the WordPress enquiry handler in inc/form-backend.php. */
 function rjy_group_contact_form( $page = array(), $compact = false ) {
-	if ( rjy_group_render_cf7_form( $page ) ) {
+	if ( rjy_group_render_cf7_form( $page, $compact ) ) {
 		return;
 	}
 	$status = isset( $_GET['contact'] ) ? sanitize_key( wp_unslash( $_GET['contact'] ) ) : '';

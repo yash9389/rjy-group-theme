@@ -1,15 +1,10 @@
 <?php
-/** Contact Form 7 integration for the Request an Inspection / Get a Quote page. */
+/** Contact Form 7 integration for the site-wide enquiry form. */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/** Page paths whose enquiry form is rendered by Contact Form 7 instead of the theme handler. */
-function rjy_group_cf7_form_paths() {
-	return array( '/support/request-quote' );
-}
-
-/** ID of the CF7 form saved in the rjy_quote_cf7_form_id option, or 0 when CF7 or the form is unavailable. */
+/** ID of the CF7 enquiry form saved in the rjy_quote_cf7_form_id option, or 0 when CF7 or the form is unavailable. */
 function rjy_group_cf7_quote_form_id() {
 	if ( ! function_exists( 'wpcf7_contact_form' ) ) {
 		return 0;
@@ -18,13 +13,21 @@ function rjy_group_cf7_quote_form_id() {
 	return $form_id && wpcf7_contact_form( $form_id ) ? $form_id : 0;
 }
 
-/** Output the CF7 quote form when it applies to $page; returns false so the caller falls back to the theme form. */
-function rjy_group_render_cf7_form( $page ) {
+/** Output the CF7 enquiry form; returns false so the caller falls back to the theme form when CF7 is unavailable. */
+function rjy_group_render_cf7_form( $page, $compact = false ) {
 	$form_id = rjy_group_cf7_quote_form_id();
-	if ( ! $form_id || ! in_array( $page['path'] ?? '', rjy_group_cf7_form_paths(), true ) ) {
+	if ( ! $form_id ) {
 		return false;
 	}
-	echo do_shortcode( sprintf( '[contact-form-7 id="%d" html_id="enquiry" html_class="contact-form"]', $form_id ) );
+	$html = do_shortcode( sprintf( '[contact-form-7 id="%d" html_id="enquiry" html_class="contact-form%s"]', $form_id, $compact ? ' compact' : '' ) );
+	// Pages carry their own prompt for the details field; swap it in for the form's default placeholder.
+	if ( ! empty( $page['enquiryPrompt'] ) ) {
+		$html = preg_replace( '/(<textarea[^>]*\splaceholder=")[^"]*"/', '${1}' . esc_attr( $page['enquiryPrompt'] ) . '"', $html, 1 );
+	}
+	if ( $compact ) {
+		$html = preg_replace( '/(<textarea[^>]*\srows=")\d+"/', '${1}3"', $html, 1 );
+	}
+	echo $html;
 	return true;
 }
 
@@ -48,7 +51,7 @@ add_filter( 'wpcf7_kses_allowed_html', static function ( $allowed ) {
 	return $allowed;
 } );
 
-/** Save CF7 quote submissions under Enquiries in wp-admin, like the theme's own form does. */
+/** Save CF7 enquiry submissions under Enquiries in wp-admin, like the theme's own form does. */
 function rjy_group_cf7_store_enquiry( $contact_form ) {
 	$submission = WPCF7_Submission::get_instance();
 	if ( ! $submission || (int) $contact_form->id() !== rjy_group_cf7_quote_form_id() ) {
