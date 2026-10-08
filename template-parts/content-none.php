@@ -1,0 +1,1 @@
+<div class="not-found"><h2><?php esc_html_e( 'Nothing found', 'rjy-group' ); ?></h2><p><?php esc_html_e( 'No content matched your request. Try a search.', 'rjy-group' ); ?></p><?php get_search_form(); ?></div>

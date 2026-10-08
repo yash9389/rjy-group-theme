@@ -1,0 +1,1 @@
+<article <?php post_class( 'project-card reveal' ); ?>><span class="project-index"><?php esc_html_e( 'Featured project', 'rjy-group' ); ?></span><h3><?php the_title(); ?></h3><p><?php echo esc_html( get_the_excerpt() ); ?></p><a class="text-link" href="<?php the_permalink(); ?>"><?php esc_html_e( 'View Project', 'rjy-group' ); ?></a></article>

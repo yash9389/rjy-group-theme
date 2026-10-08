@@ -1,0 +1,26 @@
+/*
+Theme Name: RJY Group
+Theme URI: https://rjygroup.net/
+Author: RJY Group
+Author URI: https://rjygroup.net/
+Description: A responsive corporate WordPress theme for RJY Group facilities, infrastructure, and operational technology services.
+Version: 2.0.0
+Requires at least: 6.5
+Tested up to: 7.1
+Requires PHP: 8.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: rjy-group
+Tags: custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, wide-blocks, full-width-template
+*/
+
+/* Visual design lives in assets/css/app.css (compiled from the React site). Only WordPress-specific rules belong here. */
+.screen-reader-text{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+.skip-link:focus{position:fixed;top:8px;left:8px;z-index:1000;width:auto;height:auto;clip:auto;padding:12px 16px;background:#fff;color:#000}
+.admin-bar .site-header{top:32px}
+@media (max-width:782px){.admin-bar .site-header{top:46px}}
+.mobile-nav[hidden]{display:none}
+.form-trap{display:none}
+.wp-editor-content{margin-top:1.5rem}
+.wp-editor-content > * + *{margin-top:1rem}
+.breadcrumbs li a{white-space:nowrap}

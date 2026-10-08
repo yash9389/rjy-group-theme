@@ -1,0 +1,1 @@
+<a id="post-<?php the_ID(); ?>" <?php post_class(); ?> href="<?php the_permalink(); ?>"><p><?php echo esc_html( get_the_date() ); ?></p><h3><?php the_title(); ?></h3><span><?php esc_html_e( 'Read article', 'rjy-group' ); ?> <?php echo rjy_group_icon( 'arrow-right' ); ?></span></a>

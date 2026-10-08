@@ -1,0 +1,1 @@
+<article <?php post_class( 'testimonial reveal' ); ?>><span class="quote-mark" aria-hidden="true">“</span><blockquote><?php echo wp_kses_post( wpautop( get_the_excerpt() ? get_the_excerpt() : get_the_content() ) ); ?></blockquote><cite><?php the_title(); ?></cite></article>
