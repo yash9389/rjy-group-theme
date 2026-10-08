@@ -1,7 +1,7 @@
 <?php
 /** RJY Group theme functions. */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
-define( 'RJY_GROUP_VERSION', '2.0.1' );
+define( 'RJY_GROUP_VERSION', '2.0.2' );
 require_once get_template_directory() . '/inc/icons.php';
 require_once get_template_directory() . '/inc/markup.php';
 require_once get_template_directory() . '/inc/customizer.php';
