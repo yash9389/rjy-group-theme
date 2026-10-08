@@ -21,6 +21,7 @@ function rjy_group_image( $key ) {
 		'generatorDetail' => 'detail-generator-test.jpg', 'staffingDetail' => 'detail-staffing-team.jpg', 'waterDetail' => 'detail-water-sampling.jpg',
 		'healthcareDetail' => 'detail-healthcare-plant.jpg', 'publicSafetyDetail' => 'detail-public-safety.jpg',
 		'commercialDetail' => 'detail-commercial-campus.jpg', 'educationDetail' => 'detail-university-lab.jpg', 'transportDetail' => 'detail-transport-utility.jpg',
+		'chiller' => 'detail-hvac-chiller.jpg', 'chillerDetail' => 'bas-control-room.jpg',
 	);
 	return rjy_group_asset( $files[ $key ] ?? $files['servicesHub'] );
 }
@@ -43,6 +44,7 @@ function rjy_group_industries() {
 		array( 'title' => 'Industrial & Commercial Campuses', 'path' => '/industries/industrial-commercial', 'description' => 'Integrated maintenance and security for complex operating environments.', 'image' => 'commercialCampus' ),
 		array( 'title' => 'Higher Education', 'path' => '/industries/higher-education', 'description' => 'Comfort, reliability, and security across academic and residential buildings.', 'image' => 'higherEducation' ),
 		array( 'title' => 'Data Center', 'path' => '/industries/data-center', 'description' => 'Reliable infrastructure for critical operations.', 'image' => 'dataCenter' ),
+		array( 'title' => 'Chiller', 'path' => '/industries/chiller', 'description' => 'Reliable chiller and central cooling plant performance.', 'image' => 'chiller' ),
 		array( 'title' => 'Transportation & Utilities', 'path' => '/industries/transportation-utilities', 'description' => 'Resilient infrastructure that keeps people, power, and services moving.', 'image' => 'transportUtilities' ),
 	);
 }

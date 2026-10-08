@@ -3442,5 +3442,130 @@
         "description": "Read guidance for facility teams."
       }
     ]
+  },
+  "/industries/chiller": {
+    "path": "/industries/chiller",
+    "title": "Chiller",
+    "eyebrow": "Cooling capacity you can count on",
+    "description": "Maintenance, diagnostics, and performance services for chillers and central cooling plants.",
+    "type": "industry",
+    "image": "chiller",
+    "imageAlt": "RJY Group technicians testing a large water-cooled chiller in a central plant",
+    "introTitle": "Keep central cooling reliable, efficient, and ready for peak demand.",
+    "intro": "Chillers carry the cooling load for hospitals, campuses, data centers, and commercial buildings. RJY Group looks at the whole plant (chillers, pumps, cooling towers, heat exchangers, water treatment, and controls) so performance problems are corrected at the source and capacity is there when the load arrives.",
+    "highlights": [
+      "Centrifugal, screw, and scroll chiller service",
+      "Central plant and cooling tower support",
+      "Efficiency, sequencing, and reliability improvements"
+    ],
+    "cards": [
+      {
+        "title": "Planned chiller maintenance",
+        "copy": "Annual and seasonal service, oil and refrigerant analysis, tube cleaning, and documented inspections built around equipment condition and run hours."
+      },
+      {
+        "title": "Diagnostics and repair",
+        "copy": "Trace high approach temperatures, surging, trips, low capacity, and refrigerant issues across the chiller, water loops, and controls."
+      },
+      {
+        "title": "Plant optimization",
+        "copy": "Improve chiller staging, setpoints, condenser water temperatures, and pump sequencing to deliver the load with less energy."
+      }
+    ],
+    "process": [
+      {
+        "title": "Assess",
+        "copy": "Review chiller condition, operating logs, alarm history, water quality, and how the plant is staged and controlled."
+      },
+      {
+        "title": "Prioritize",
+        "copy": "Rank corrective, preventive, and improvement work by cooling risk, redundancy, efficiency impact, and available outage windows."
+      },
+      {
+        "title": "Service and verify",
+        "copy": "Complete documented work and confirm the plant returns to stable temperatures, pressures, and expected capacity."
+      }
+    ],
+    "outcomes": [
+      "Dependable cooling capacity at peak load",
+      "Lower plant energy use per ton",
+      "Fewer unplanned chiller trips and outages",
+      "Clear records for capital and maintenance planning"
+    ],
+    "ctaLabel": "Request a Chiller Inspection",
+    "ctaPath": "/support/request-quote",
+    "problems": [
+      {
+        "title": "Chiller trips and nuisance alarms",
+        "copy": "Find the cause of high head pressure, low evaporator temperature, flow loss, and surge events, whether it sits in the machine, the water loops, or the control sequence."
+      },
+      {
+        "title": "Lost capacity in hot weather",
+        "copy": "Identify fouled condenser tubes, cooling tower limitations, refrigerant charge problems, and staging issues that leave the plant short when demand peaks."
+      },
+      {
+        "title": "Rising energy cost",
+        "copy": "Measure plant efficiency and correct poor sequencing, fixed setpoints, excessive pump energy, and degraded heat transfer that drive kW per ton up."
+      },
+      {
+        "title": "Aging equipment and refrigerant risk",
+        "copy": "Plan repairs, overhauls, refrigerant transition, and replacement around equipment condition, redundancy, and the consequence of losing cooling."
+      }
+    ],
+    "supportImage": "chillerDetail",
+    "supportImageAlt": "Plant operator monitoring chiller plant performance from a control room",
+    "related": [
+      {
+        "path": "/services/hvac",
+        "label": "HVAC systems",
+        "description": "Keep air handling and distribution working with the cooling plant."
+      },
+      {
+        "path": "/services/water-treatment",
+        "label": "Condenser and chilled water treatment",
+        "description": "Protect heat transfer surfaces from scale, corrosion, and fouling."
+      },
+      {
+        "path": "/services/bas",
+        "label": "Plant controls and sequencing",
+        "description": "Optimize chiller staging, setpoints, and monitoring."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Which types of chillers does RJY Group support?",
+        "answer": "RJY Group supports water-cooled and air-cooled chillers, including centrifugal, screw, and scroll machines, along with the pumps, cooling towers, heat exchangers, and controls that make up the central plant. Scope is confirmed after reviewing the equipment and site conditions."
+      },
+      {
+        "question": "How often should a chiller be serviced?",
+        "answer": "Most chillers need an annual major inspection plus seasonal and routine checks, with oil, refrigerant, and vibration analysis where appropriate. The right interval depends on run hours, criticality, manufacturer guidance, water quality, and the equipment's service history."
+      },
+      {
+        "question": "Can chiller work be done without losing cooling?",
+        "answer": "In most cases, yes. Work can be sequenced around redundancy, cooler weather, temporary cooling, and approved outage windows so critical spaces stay protected. The approach depends on how many machines the plant has and how much load each one carries."
+      },
+      {
+        "question": "Why is our chiller plant using more energy than expected?",
+        "answer": "Common causes include fouled condenser tubes, poor water treatment, running too many chillers at part load, fixed chilled and condenser water setpoints, and pump or tower control issues. A plant review can measure efficiency and show which corrections are worth doing first."
+      },
+      {
+        "question": "What should we do about older refrigerants?",
+        "answer": "Start with an inventory of the machines, their refrigerant type, condition, and leak history. From there RJY Group can help weigh continued service, retrofit, and replacement options against cost, risk, and regulatory timelines."
+      },
+      {
+        "question": "Will we get documentation after chiller service?",
+        "answer": "Deliverables depend on the agreed scope but can include inspection reports, test and analysis results, photographs, operating readings, open issues, and prioritized recommendations, so maintenance and capital planning are based on real equipment condition."
+      },
+      {
+        "question": "How do we start a chiller project?",
+        "answer": "Use the enquiry form with the facility, chiller details, symptoms, timing, and preferred contact, or call the Houston office. The first conversation will determine whether a records review, site inspection, service visit, or proposal is the right next step."
+      }
+    ],
+    "enquiryTitle": "Let’s solve your chiller plant priority.",
+    "enquiryCopy": "Tell RJY Group about your chillers, what is happening in the plant, what has already been tried, and what a successful next step should accomplish. We will use those details to shape a focused chiller conversation.",
+    "enquiryPrompt": "Describe the facility, chiller type and size, operating symptoms, timing, known history, and the outcome you need.",
+    "phoneCta": "Discuss your chiller plant with an RJY Group cooling specialist.",
+    "imageFile": "detail-hvac-chiller.jpg",
+    "supportImageFile": "bas-control-room.jpg"
   }
 }
