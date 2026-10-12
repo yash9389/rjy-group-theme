@@ -11,37 +11,35 @@ function rjy_group_default_menu_items() {
 			'label' => __( 'Services', 'rjy-group' ),
 			'url' => '/services/',
 			'children' => array(
-				array( 'label' => __( 'Building Automation Systems (BAS)', 'rjy-group' ), 'url' => '/services/bas/' ),
-				array( 'label' => __( 'Cyber Security for OT and ICS', 'rjy-group' ), 'url' => '/services/cybersecurity-ot-ics/' ),
-				array( 'label' => __( 'HVAC Systems', 'rjy-group' ), 'url' => '/services/hvac/' ),
-				array( 'label' => __( 'Generators', 'rjy-group' ), 'url' => '/services/generators/' ),
+				array( 'label' => __( 'Building Automation Systems (BAS)', 'rjy-group' ), 'url' => '/services/building-automation-systems/' ),
+				array( 'label' => __( 'Cyber Security for OT and ICS', 'rjy-group' ), 'url' => '/services/cyber-security-for-ot-and-ics/' ),
+				array( 'label' => __( 'HVAC Systems', 'rjy-group' ), 'url' => '/services/hvac-systems/' ),
+				array( 'label' => __( 'Generators', 'rjy-group' ), 'url' => '/services/generator-services/' ),
 				array( 'label' => __( 'Support Staffing', 'rjy-group' ), 'url' => '/services/support-staffing/' ),
-				array( 'label' => __( 'Water Treatment', 'rjy-group' ), 'url' => '/services/water-treatment/' ),
+				array( 'label' => __( 'Chiller Preventive Maintenance', 'rjy-group' ), 'url' => '/services/chiller-preventive-maintenance/' ),
 			),
 		),
 		array(
 			'label' => __( 'Industries', 'rjy-group' ),
 			'url' => '/industries/',
 			'children' => array(
-				array( 'label' => __( 'Healthcare & Hospitals', 'rjy-group' ), 'url' => '/industries/healthcare-hospitals/' ),
-				array( 'label' => __( 'Government & Public Safety', 'rjy-group' ), 'url' => '/industries/government-public-safety/' ),
-				array( 'label' => __( 'Industrial & Commercial Campuses', 'rjy-group' ), 'url' => '/industries/industrial-commercial/' ),
+				array( 'label' => __( 'Healthcare & Hospitals', 'rjy-group' ), 'url' => '/industries/healthcare-and-hospitals/' ),
+				array( 'label' => __( 'Government & Public Safety', 'rjy-group' ), 'url' => '/industries/government-and-public-safety/' ),
+				array( 'label' => __( 'Industrial & Commercial Campuses', 'rjy-group' ), 'url' => '/industries/industrial-and-commercial-campuses/' ),
 				array( 'label' => __( 'Higher Education', 'rjy-group' ), 'url' => '/industries/higher-education/' ),
-				array( 'label' => __( 'Transportation & Utilities', 'rjy-group' ), 'url' => '/industries/transportation-utilities/' ),
+				array( 'label' => __( 'Transportation & Utilities', 'rjy-group' ), 'url' => '/industries/transportation-and-utilities/' ),
 			),
 		),
 		array(
 			'label' => __( 'About Us', 'rjy-group' ),
 			'url' => '/about/',
 			'children' => array(
-				array( 'label' => __( 'Company Overview', 'rjy-group' ), 'url' => '/about/overview/' ),
+				array( 'label' => __( 'Company Overview', 'rjy-group' ), 'url' => '/about/about-rjy-group-houston/' ),
 				array( 'label' => __( 'Why RJY Group', 'rjy-group' ), 'url' => '/about/why-rjy-group/' ),
 				array( 'label' => __( 'Mission & Core Values', 'rjy-group' ), 'url' => '/mission-core-values/' ),
 				array( 'label' => __( 'About the Founder', 'rjy-group' ), 'url' => '/about/founder/' ),
-				array( 'label' => __( 'Leadership Team', 'rjy-group' ), 'url' => '/about/leadership/' ),
 				array( 'label' => __( 'Certifications & Accreditations', 'rjy-group' ), 'url' => '/about/certifications/' ),
 				array( 'label' => __( 'Federal & Regional Capabilities', 'rjy-group' ), 'url' => '/about/federal-capabilities/' ),
-				array( 'label' => __( 'Awards & Press', 'rjy-group' ), 'url' => '/about/awards-press/' ),
 			),
 		),
 		array(
@@ -50,9 +48,7 @@ function rjy_group_default_menu_items() {
 			'children' => array(
 				array( 'label' => __( 'Request an Inspection / Get a Quote', 'rjy-group' ), 'url' => '/support/request-quote/' ),
 				array( 'label' => __( 'Contact Support', 'rjy-group' ), 'url' => '/support/contact/' ),
-				array( 'label' => __( 'AI Service Advisor', 'rjy-group' ), 'url' => '/support/advisor/' ),
 				array( 'label' => __( 'FAQs', 'rjy-group' ), 'url' => '/support/faqs/' ),
-				array( 'label' => __( 'Knowledge Center', 'rjy-group' ), 'url' => '/support/knowledge-center/' ),
 				array( 'label' => __( 'Resources & Downloads', 'rjy-group' ), 'url' => '/support/resources/' ),
 			),
 		),
@@ -60,20 +56,38 @@ function rjy_group_default_menu_items() {
 }
 
 function rjy_group_footer_link_groups() {
-	$menu = rjy_group_default_menu_items();
-	$company = array_values( array_filter( $menu[3]['children'], static function ( $item ) { return ! in_array( $item['url'], array( '/mission-core-values/', '/about/awards-press/', '/about/founder/' ), true ); } ) );
-	$industries = array_values( array_filter( $menu[2]['children'], static function ( $item ) { return '/industries/transportation-utilities/' !== $item['url']; } ) );
-	$support = array_values( array_filter( $menu[4]['children'], static function ( $item ) { return '/support/resources/' !== $item['url']; } ) );
-	return array(
-		array( 'title' => __( 'Services', 'rjy-group' ), 'items' => $menu[1]['children'] ),
-		array( 'title' => __( 'Industries', 'rjy-group' ), 'items' => $industries ),
-		array( 'title' => __( 'Company', 'rjy-group' ), 'items' => array_slice( $company, 0, 6 ) ),
-		array( 'title' => __( 'Support', 'rjy-group' ), 'items' => $support ),
-		array( 'title' => __( 'Also', 'rjy-group' ), 'items' => array(
-			array( 'label' => __( 'Testimonials', 'rjy-group' ), 'url' => '/testimonials/' ),
-			array( 'label' => __( 'Awards & Press', 'rjy-group' ), 'url' => '/about/awards-press/' ),
-		) ),
-	);
+	$locations = get_nav_menu_locations();
+	$items = ! empty( $locations['primary'] ) ? wp_get_nav_menu_items( $locations['primary'] ) : array();
+	$groups = array();
+	if ( $items ) {
+		foreach ( $items as $item ) {
+			if ( ! $item->menu_item_parent ) {
+				$groups[ $item->ID ] = array( 'title' => 'About Us' === $item->title ? __( 'Company', 'rjy-group' ) : $item->title, 'items' => array() );
+			}
+		}
+		foreach ( $items as $item ) {
+			if ( $item->menu_item_parent && isset( $groups[ $item->menu_item_parent ] ) ) {
+				$path = wp_parse_url( $item->url, PHP_URL_PATH );
+				$groups[ $item->menu_item_parent ]['items'][] = array( 'label' => $item->title, 'url' => $path ? $path : '/' );
+			}
+		}
+		$groups = array_values( array_filter( $groups, static function ( $g ) { return ! empty( $g['items'] ); } ) );
+	}
+	if ( ! $groups ) {
+		$menu = rjy_group_default_menu_items();
+		$groups = array(
+			array( 'title' => __( 'Services', 'rjy-group' ), 'items' => $menu[1]['children'] ),
+			array( 'title' => __( 'Industries', 'rjy-group' ), 'items' => $menu[2]['children'] ),
+			array( 'title' => __( 'Company', 'rjy-group' ), 'items' => $menu[3]['children'] ),
+			array( 'title' => __( 'Support', 'rjy-group' ), 'items' => $menu[4]['children'] ),
+		);
+	}
+	foreach ( $groups as $k => $g ) {
+		if ( 'Company' === $g['title'] ) {
+			$groups[ $k ]['items'][] = array( 'label' => __( 'Testimonials', 'rjy-group' ), 'url' => '/testimonials/' );
+		}
+	}
+	return $groups;
 }
 
 function rjy_group_create_default_menu() {

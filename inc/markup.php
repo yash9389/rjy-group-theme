@@ -2,7 +2,7 @@
 /** Markup helpers that mirror the React site's components (src/components). */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-/** WordPress URL for a React route path such as "/services/bas". */
+/** WordPress URL for a React route path such as "/services/building-automation-systems". */
 function rjy_group_url( $path ) {
 	$path = trim( (string) $path, '/' );
 	return $path ? home_url( '/' . $path . '/' ) : home_url( '/' );
