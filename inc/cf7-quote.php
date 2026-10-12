@@ -20,10 +20,10 @@ function rjy_group_render_cf7_form( $page, $compact = false ) {
 		return false;
 	}
 	$html = do_shortcode( sprintf( '[contact-form-7 id="%d" html_id="enquiry" html_class="contact-form%s"]', $form_id, $compact ? ' compact' : '' ) );
-	// Pages carry their own prompt for the details field; swap it in for the form's default placeholder.
-	if ( ! empty( $page['enquiryPrompt'] ) ) {
-		$html = preg_replace( '/(<textarea[^>]*\splaceholder=")[^"]*"/', '${1}' . esc_attr( $page['enquiryPrompt'] ) . '"', $html, 1 );
-	}
+	// The field label lives inside the box: label first, then the page's own prompt on a second line.
+	$prompt = ! empty( $page['enquiryPrompt'] ) ? $page['enquiryPrompt'] : __( 'Describe the facility, affected system, current condition, timing, and the outcome you need.', 'rjy-group' );
+	$placeholder = esc_attr( $prompt );
+	$html = preg_replace_callback( '/(<textarea[^>]*\splaceholder=")[^"]*"/', static function ( $m ) use ( $placeholder ) { return $m[1] . $placeholder . '"'; }, $html, 1 );
 	if ( $compact ) {
 		$html = preg_replace( '/(<textarea[^>]*\srows=")\d+"/', '${1}3"', $html, 1 );
 	}
@@ -36,7 +36,7 @@ add_filter( 'wpcf7_autop_or_not', '__return_false' );
 
 /** [rjy_submit "Label"] renders the theme's primary button with its arrow icon. */
 function rjy_group_cf7_submit_tag( $tag ) {
-	$label = $tag->values ? $tag->values[0] : __( 'Prepare Enquiry', 'rjy-group' );
+	$label = $tag->values ? $tag->values[0] : __( 'Send This to the Experts', 'rjy-group' );
 	return '<button class="wpcf7-submit ' . esc_attr( rjy_group_button_class( 'default', 'lg' ) ) . '" type="submit">' . esc_html( $label ) . ' ' . rjy_group_icon( 'arrow-right' ) . '</button>';
 }
 add_action( 'wpcf7_init', static function () {
@@ -79,5 +79,7 @@ function rjy_group_cf7_store_enquiry( $contact_form ) {
 	update_post_meta( $stored_id, '_rjy_contact_phone', sanitize_text_field( $field( 'phone' ) ) );
 	update_post_meta( $stored_id, '_rjy_contact_company', sanitize_text_field( $field( 'company' ) ) );
 	update_post_meta( $stored_id, '_rjy_contact_service', sanitize_text_field( $field( 'service' ) ) );
+	update_post_meta( $stored_id, '_rjy_contact_city', sanitize_text_field( $field( 'city' ) ) );
+	update_post_meta( $stored_id, '_rjy_contact_industry', sanitize_text_field( $field( 'industry' ) ) );
 }
 add_action( 'wpcf7_before_send_mail', 'rjy_group_cf7_store_enquiry' );

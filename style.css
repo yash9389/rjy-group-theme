@@ -4,7 +4,7 @@ Theme URI: https://rjygroup.net/
 Author: RJY Group
 Author URI: https://rjygroup.net/
 Description: A responsive corporate WordPress theme for RJY Group facilities, infrastructure, and operational technology services.
-Version: 2.0.1
+Version: 2.0.2
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.0
@@ -28,3 +28,525 @@ Tags: custom-logo, custom-menu, featured-images, threaded-comments, translation-
 .contact-form .wpcf7-not-valid-tip{display:block;margin-top:6px;color:#b33b32;font-size:12px;font-weight:600}
 .contact-form .wpcf7-spinner{display:none}
 .wpcf7 form.contact-form .wpcf7-response-output{margin:18px 0 0;padding:12px 16px;font-size:14px}
+
+/* Intro facts: quick entrance animation (driven by navigation.js) */
+.rjy-fx{opacity:0;transform:translateY(14px);transition:opacity .45s cubic-bezier(.22,.61,.36,1) var(--fx-delay,0ms),transform .45s cubic-bezier(.22,.61,.36,1) var(--fx-delay,0ms)}
+.rjy-fx-in{opacity:1;transform:none}
+.intro-badge svg.rjy-fx{transform:scale(.6) rotate(-12deg)}
+.intro-badge svg.rjy-fx-in{transform:none}
+@media (prefers-reduced-motion: reduce){.rjy-fx{opacity:1;transform:none;transition:none}}
+
+/* Intro band: single centered column, no side image */
+.intro-grid{grid-template-columns:1fr;justify-items:center;text-align:center}
+.intro-copy{padding:62px 0;width:100%;display:flex;flex-direction:column;align-items:center}
+.intro-copy .section-head{margin-inline:auto;text-align:center}
+.intro-copy .section-head .eyebrow{padding-left:0}
+.intro-copy .section-head .eyebrow:before{position:static;display:block;margin:0 auto 14px;transform:none}
+.intro-copy .section-head > p:last-child:not(.eyebrow){margin-inline:auto}
+.intro-facts{width:100%;max-width:980px;margin-inline:auto}
+.intro-badge,.intro-stat{text-align:center}
+.intro-badge{flex-direction:column;align-items:center;justify-content:center}
+.intro-stat{grid-template-columns:1fr;justify-items:center;align-content:center;gap:10px}
+@media (width <= 1024px){.intro-copy{padding:56px 0}}
+
+/* Spacing: intro band to services */
+.intro-copy{padding:56px 0 52px}
+.intro-copy .section-head{margin-bottom:26px}
+.intro-copy .section-head h2{margin-bottom:12px}
+.intro-badge,.intro-stat{min-height:0;padding:26px 32px}
+.page-section.services-home{padding-top:60px;padding-bottom:84px}
+.services-home .section-kicker{margin:0 0 12px;text-align:center;color:var(--accent);font-size:13px;font-weight:800;letter-spacing:.24em;text-transform:uppercase}
+.services-home .section-head{margin-bottom:36px}
+
+/* Services tiles: rectangular images, full-card link, hover highlight */
+.service-grid .image-tile{position:relative;transition:background-color .25s,box-shadow .25s,transform .25s}
+.service-grid .image-tile-media{aspect-ratio:16 / 9;border-radius:0}
+.service-grid .image-tile-media img{border-radius:0}
+.service-grid .image-tile-copy > a::after{content:"";position:absolute;inset:0;z-index:1}
+.service-grid .image-tile-copy > a:hover{transform:none}
+.service-grid .image-tile h3{transition:color .25s}
+.service-grid .accent-rule{transition:width .3s}
+.service-grid .image-tile:hover,.service-grid .image-tile:focus-within{background:var(--muted);box-shadow:0 0 0 2px var(--accent) inset,0 16px 34px -18px rgba(0,0,0,.28);z-index:2}
+.service-grid .image-tile:hover h3,.service-grid .image-tile:focus-within h3{color:var(--accent)}
+.service-grid .image-tile:hover .accent-rule,.service-grid .image-tile:focus-within .accent-rule{width:96px}
+.service-grid .image-tile:hover .image-tile-copy > a,.service-grid .image-tile:focus-within .image-tile-copy > a{color:var(--accent)}
+.service-grid .image-tile:hover .image-tile-copy > a svg{transform:translateX(5px)}
+.service-grid .image-tile-copy > a:focus-visible{outline:none}
+@media (width <= 1024px){.page-section.services-home{padding-top:48px;padding-bottom:64px}.intro-copy{padding:48px 0 40px}}
+/* Stats bar: compact panels, slow entrance */
+.stat-panel,.stat-panel > div{min-height:150px}
+.stat-panel > div{padding:18px 20px}
+.stats-bar strong{font-size:34px;line-height:1.1;margin-bottom:4px}
+.stats-bar span{font-size:11px;letter-spacing:.12em}
+@supports (color: color-mix(in lab, red, red)){.stat-shade{background:color-mix(in oklab,var(--foreground) 46%,transparent)}}
+.stat-panel > img{object-position:center}
+.rjy-stat > div{opacity:0;transform:translateY(22px);transition:opacity 1.1s cubic-bezier(.22,.61,.36,1) var(--stat-delay,0ms),transform 1.1s cubic-bezier(.22,.61,.36,1) var(--stat-delay,0ms)}
+.rjy-stat > img{opacity:0;transform:scale(1.08);transition:opacity 1.4s ease var(--stat-delay,0ms),transform 2s cubic-bezier(.22,.61,.36,1) var(--stat-delay,0ms)}
+.rjy-stat-in > div{opacity:1;transform:none}
+.rjy-stat-in > img{opacity:1;transform:none}
+.rjy-stat-in:hover > img{transform:scale(1.035)}
+@media (width <= 640px){.stat-panel,.stat-panel > div{min-height:130px}.stats-bar strong{font-size:28px}}
+@media (prefers-reduced-motion: reduce){.rjy-stat > div,.rjy-stat > img{opacity:1;transform:none;transition:none}}
+/* ===== Services heading now mirrors Industries ===== */
+.services-home .section-kicker{display:none}
+.page-section.services-home{padding-top:60px}
+
+/* ===== Industries tiles: same treatment as services ===== */
+.industry-grid .image-tile{position:relative;transition:background-color .25s,box-shadow .25s,transform .25s}
+.industry-grid .image-tile-media{aspect-ratio:16 / 9;border-radius:0}
+.industry-grid .image-tile-media img{border-radius:0}
+.industry-grid .image-tile-copy > a::after{content:"";position:absolute;inset:0;z-index:1}
+.industry-grid .image-tile-copy > a:hover{transform:none}
+.industry-grid .image-tile h3{transition:color .25s}
+.industry-grid .accent-rule{transition:width .3s}
+.industry-grid .image-tile:hover,.industry-grid .image-tile:focus-within{background:var(--muted);box-shadow:0 0 0 2px var(--accent) inset,0 16px 34px -18px rgba(0,0,0,.28);z-index:2}
+.industry-grid .image-tile:hover h3,.industry-grid .image-tile:focus-within h3{color:var(--accent)}
+.industry-grid .image-tile:hover .accent-rule,.industry-grid .image-tile:focus-within .accent-rule{width:96px}
+.industry-grid .image-tile:hover .image-tile-copy > a,.industry-grid .image-tile:focus-within .image-tile-copy > a{color:var(--accent)}
+.industry-grid .image-tile:hover .image-tile-copy > a svg{transform:translateX(5px)}
+.industry-grid .image-tile-copy > a:focus-visible{outline:none}
+
+/* ===== Why RJY Group: bold topics ===== */
+.value-grid h3{font-weight:900;letter-spacing:-.005em;font-size:19px}
+
+/* ===== Internal pages ===== */
+.breadcrumbs ol{min-height:62px;gap:12px}
+.breadcrumbs li{font-size:15px}
+.breadcrumbs svg{width:16px}
+
+/* FAQ: centered, hover tint, larger blue plus */
+.faq-section{grid-template-columns:minmax(0,1fr);justify-items:center;gap:44px}
+.faq-section > div:first-child{position:static;text-align:center;max-width:760px}
+.faq-section > div:last-child{width:100%;max-width:900px}
+.faq-section > div:first-child > p:not(.eyebrow){margin-inline:auto}
+.faq{padding:0}
+.faq summary{padding:24px 22px;align-items:center;gap:20px;transition:background-color .2s;list-style:none;text-align:left}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{background:color-mix(in oklab,var(--accent) 9%,var(--background))}
+.faq summary > span[aria-hidden="true"]{flex:none;color:var(--accent);font-size:34px;font-weight:600;line-height:1;transition:transform .25s}
+.faq[open] summary > span[aria-hidden="true"]{transform:rotate(45deg)}
+.faq p{padding:4px 22px 26px;text-align:left}
+
+/* Scope priorities: centered, bigger title, smaller line below */
+.highlight-layout{grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center;gap:34px}
+.highlight-layout > div{max-width:760px}
+.highlight-layout .eyebrow{font-size:clamp(32px,3.6vw,48px);font-weight:850;letter-spacing:-.01em;line-height:1.1;text-transform:none;margin-bottom:12px}
+.highlight-layout h2{font-size:17px;font-weight:600;line-height:1.55;letter-spacing:.01em}
+.highlight-layout ul{width:100%;max-width:760px}
+.highlight-layout li{justify-content:center;text-align:center}
+
+/* Enquiry and contact: copy and form centered on the page */
+.form-layout{grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center;gap:44px}
+.form-layout .support-context{max-width:820px;width:100%;text-align:center}
+.form-layout .support-context .enquiry-note{max-width:640px;margin-inline:auto;text-align:left}
+.form-layout .contact-methods,.form-layout .office-block{justify-content:center;text-align:left}
+.form-layout .contact-form,.form-layout .form-confirmation{width:100%;max-width:820px;text-align:left}
+.form-layout .support-context h2{margin-inline:auto}
+
+/* Section head sizing on internal pages stays consistent */
+.problems-story figcaption{display:none}
+/* FAQ band: white background */
+.faq-band{background:var(--background);border-top:1px solid var(--border)}
+.faq{background:var(--background)}
+
+/* Phone call band: wider, shorter buttons */
+.phone-close a{min-width:270px;padding:11px 24px;gap:14px}
+.phone-close strong{margin-top:1px}
+.phone-close > .site-container > div:last-child{gap:14px}
+@media (width <= 640px){.phone-close a{min-width:0;padding:12px 18px}}
+
+/* Footer phone numbers */
+.footer-contact .footer-phone{font-weight:800;font-size:15px;align-items:center}
+.footer-contact .footer-phone span{display:flex;flex-direction:column;line-height:1.35}
+.footer-contact .footer-phone small{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:.65}
+/* Call band: centered, smaller type, buttons below */
+.phone-close{padding:56px 0}
+.phone-close > .site-container{grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center;gap:28px}
+.phone-close h2{font-size:clamp(24px,2.7vw,34px);line-height:1.25;max-width:760px;margin-inline:auto}
+.phone-close h2 u{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:7px;text-decoration-color:var(--highlight)}
+.phone-close > .site-container > div:last-child{grid-template-columns:repeat(2,auto);justify-content:center}
+@media (width <= 640px){.phone-close > .site-container > div:last-child{grid-template-columns:1fr;width:100%}}
+/* ===== Uniform section titles across internal pages ===== */
+.internal-intro .eyebrow,.problems-story .eyebrow,.support-context .eyebrow,.faq-section .eyebrow,.highlight-layout .eyebrow,.outcomes-band .eyebrow{font-size:clamp(24px,2.6vw,34px);font-weight:850;letter-spacing:-.01em;line-height:1.15;text-transform:none;margin-bottom:10px}
+.internal-intro h2,.problems-story h2,.support-context h2,.faq-section h2,.highlight-layout h2{font-size:17px;font-weight:600;line-height:1.55;letter-spacing:.01em}
+
+/* Intro block centered */
+.internal-intro{grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center;gap:18px}
+.internal-intro > div{max-width:820px}
+.internal-intro > p{padding-top:0;max-width:820px;font-size:18px}
+
+/* Outcomes band centered */
+.outcomes-band > .site-container{text-align:center}
+.outcomes-band > .site-container > div{justify-items:center}
+.outcomes-band span{justify-content:center}
+
+/* Core Capabilities cards: no numbers, centered icon, bold titles */
+.capability-grid article{display:flex;flex-direction:column;align-items:center;text-align:center;min-height:0;padding:38px 30px}
+.capability-grid .icon-box{margin:0 auto;width:58px;height:58px}
+.capability-grid .icon-box svg{width:27px;height:27px}
+.capability-grid h3{margin-top:22px;font-weight:900}
+.capability-grid p{margin-top:12px}
+/* ===== Facility Outcomes: centered, photo background, pill buttons ===== */
+.outcomes-band{position:relative;overflow:hidden;isolation:isolate;padding:72px 0;background:var(--foreground)}
+.outcomes-band .outcomes-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.outcomes-band .outcomes-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,20,45,.78),rgba(8,20,45,.66))}
+.outcomes-band > .site-container{position:relative;text-align:center}
+.outcomes-band .eyebrow{color:#fff;margin-bottom:26px}
+.outcomes-band .outcome-list{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;grid-template-columns:none}
+.outcome-pill{display:inline-flex;align-items:center;gap:12px;padding:12px 24px 12px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.14);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#fff;font-size:15px;font-weight:700;line-height:1.3;transition:background-color .25s,border-color .25s,transform .25s}
+.outcome-pill:hover{background:rgba(255,255,255,.24);border-color:rgba(255,255,255,.7);transform:translateY(-2px)}
+.outcome-check{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff}
+.outcome-check svg{width:16px;height:16px;color:#fff;stroke-width:3}
+@media (width <= 640px){.outcomes-band{padding:56px 0}.outcome-pill{width:100%;justify-content:flex-start}}
+/* ===== Internal hero: no label, one-line title, two buttons ===== */
+.inner-hero-content h1{font-size:clamp(28px,3vw,42px);line-height:1.15;max-width:none}
+.inner-hero-content > p:not(.eyebrow){margin-top:16px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.inner-hero-content .hero-actions a{width:auto}
+.hero-actions .hero-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.75)}
+.hero-actions .hero-outline:hover{background:#fff;color:var(--primary)}
+@media (width <= 640px){.inner-hero-content h1{font-size:26px}.inner-hero-content .hero-actions a{width:100%}}
+
+/* ===== How We Work: no numbers, centered, bold ===== */
+.process-grid article{grid-template-columns:minmax(0,1fr);text-align:center;justify-items:center}
+.process-grid h3{font-weight:900}
+
+/* ===== Body and footer text, one size up ===== */
+body{font-size:17px}
+.image-tile p{font-size:15px}
+.section-head > p:last-child:not(.eyebrow){font-size:17px}
+.intro-copy .section-head > p:last-child:not(.eyebrow){font-size:16px}
+.intro-badge{font-size:14px}
+.intro-stat span{font-size:13.5px}
+.value-grid p{font-size:14px}
+.credential-grid p{font-size:15px}
+.founder-body{font-size:16.5px}
+.lead{font-size:19px}
+.contact-form label{font-size:13px}
+.internal-intro > p{font-size:19px}
+.capability-grid p{font-size:16px}
+.process-grid p{font-size:15px}
+.problem-list p{font-size:15px}
+.problems-story > p:not(.eyebrow),.faq-section > div:first-child > p:not(.eyebrow){font-size:17px}
+.highlight-layout li{font-size:17px}
+.office-block strong,.office-block p{font-size:15px}
+.enquiry-note p{font-size:14px}
+.expectation-grid p{font-size:15px}
+.form-confirmation p{font-size:15px}
+.disclosure{font-size:14px}
+.stats-bar span{font-size:13px}
+.cert-strip span{font-size:14px}
+.inner-hero-content > p:not(.eyebrow),.home-hero-content > p:not(.eyebrow){font-size:19px}
+.faq p{font-size:17px}
+.footer-lead p{font-size:17px}
+.footer-columns h2,.footer-label{font-size:12px}
+.footer-columns a{font-size:13px}
+.footer-contact > p:not(.footer-label),.footer-contact > a{font-size:14px}
+.footer-contact .footer-phone{font-size:16px}
+.footer-legal{font-size:12px}
+@media (width <= 767px){.value-grid p{font-size:13px}.internal-intro > p{font-size:18px}.inner-hero-content > p:not(.eyebrow),.home-hero-content > p:not(.eyebrow){font-size:17px}.capability-grid p,.image-tile p{min-height:0}}
+/* ===== Problems list: round numbered badges, vertically centered ===== */
+.problem-list article{grid-template-columns:48px minmax(0,1fr);align-items:center;gap:22px}
+.problem-list article > span{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#fff;border:1px solid var(--accent);color:var(--accent);font-size:15px;font-weight:700;line-height:1}
+@media (width <= 640px){.problem-list article{grid-template-columns:40px minmax(0,1fr);gap:16px}.problem-list article > span{width:36px;height:36px;font-size:13px}}
+/* ===== Enquiry form: modern card layout ===== */
+.contact-form{background:#fff;border:1px solid var(--border);border-top:4px solid var(--accent);border-radius:12px;padding:44px 44px 40px;box-shadow:0 28px 70px -34px rgba(15,35,80,.28)}
+.contact-form .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 22px;margin:0}
+.contact-form .form-grid .full{grid-column:1 / -1}
+.contact-form label{display:block;color:var(--primary);font-size:13px;font-weight:700;letter-spacing:.015em;line-height:1.3}
+.contact-form .details{margin-top:24px}
+.contact-form .wpcf7-form-control-wrap{display:block;margin-top:9px}
+.contact-form input:not([type=checkbox]):not([type=radio]):not([type=submit]),.contact-form select,.contact-form textarea{display:block;width:100%;margin-top:0;padding:14px 16px;border:1px solid var(--border);border-radius:8px;background:#fff;color:var(--foreground);font:inherit;font-size:16px;font-weight:400;line-height:1.4;transition:border-color .2s,box-shadow .2s,background-color .2s;box-shadow:none}
+.contact-form label > input,.contact-form label > select,.contact-form label > textarea{margin-top:9px}
+.contact-form ::placeholder{color:color-mix(in oklab,var(--muted-foreground) 78%,transparent);opacity:1}
+.contact-form input:hover,.contact-form select:hover,.contact-form textarea:hover{border-color:color-mix(in oklab,var(--accent) 45%,var(--border))}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in oklab,var(--accent) 16%,transparent)}
+.contact-form select{appearance:none;-webkit-appearance:none;padding-right:44px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%232563c4' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;cursor:pointer}
+.contact-form textarea{min-height:150px;resize:vertical}
+.contact-form .wpcf7-submit,.contact-form > button[type=submit]{width:100%;height:54px;margin-top:28px;border-radius:8px;font-size:16px;font-weight:700;letter-spacing:.01em;box-shadow:0 12px 28px -14px color-mix(in oklab,var(--primary) 80%,transparent)}
+.contact-form .wpcf7-spinner{display:block;margin:12px auto 0}
+.contact-form .wpcf7-not-valid-tip{display:block;margin-top:6px;color:#c0392b;font-size:12.5px;font-weight:600}
+.contact-form .wpcf7-not-valid{border-color:#c0392b}
+.wpcf7 form .wpcf7-response-output{margin:22px 0 0;padding:14px 18px;border-radius:8px;font-size:14px}
+@media (width <= 640px){.contact-form{padding:28px 20px 26px}.contact-form .form-grid{grid-template-columns:minmax(0,1fr);gap:20px}}
+/* ===== Form interaction: light-blue thick focus, bold blue text, animated submit ===== */
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:var(--highlight);box-shadow:0 0 0 2px var(--highlight);background:#fff}
+.contact-form input:not([type=checkbox]):not([type=radio]):not([type=submit]):not(:placeholder-shown),.contact-form textarea:not(:placeholder-shown),.contact-form input:focus,.contact-form textarea:focus{color:var(--accent);font-weight:700}
+.contact-form select:focus,.contact-form select:not(:has(option[value=""]:checked)){color:var(--accent);font-weight:700}
+.contact-form select option{color:var(--foreground);font-weight:400}
+.contact-form .wpcf7-submit,.contact-form > button[type=submit]{transition:background-color .25s,color .25s,box-shadow .25s,transform .25s}
+.contact-form .wpcf7-submit svg,.contact-form > button[type=submit] svg{transition:transform .25s}
+.contact-form .wpcf7-submit:hover,.contact-form > button[type=submit]:hover{background:var(--highlight);color:var(--foreground);box-shadow:0 14px 30px -14px color-mix(in oklab,var(--highlight) 90%,transparent)}
+.contact-form .wpcf7-submit:hover svg,.contact-form > button[type=submit]:hover svg{transform:translateX(7px)}
+/* Four-card capability grids: two rows of two */
+.capability-grid:has(> article:nth-child(4):last-child){grid-template-columns:repeat(2,minmax(0,1fr))}
+.faq-section > div:first-child > h2:first-child{margin-top:0}
+@media (width <= 640px){.capability-grid:has(> article:nth-child(4):last-child){grid-template-columns:minmax(0,1fr)}}
+/* ===== Certifications stripe and hero kicker ===== */
+.cert-stripe{background:#1d2f68;color:#fff;padding:60px 0 64px}
+.cert-stripe h2{color:#fff;text-align:center;font-size:clamp(28px,3vw,40px);font-weight:850;letter-spacing:-.01em;line-height:1.15;margin:0 0 42px}
+.cert-logos{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:30px;align-items:center;justify-items:center}
+.cert-logos figure{margin:0;display:flex;align-items:center;justify-content:center}
+.cert-logos img{display:block;height:150px;width:auto;max-width:100%;object-fit:contain}
+.cert-gsa{text-align:center;color:#fff}
+.cert-gsa strong{display:block;font-size:26px;font-weight:800;line-height:1.2}
+.cert-gsa span{display:block;margin-top:6px;font-size:19px}
+.cert-gsa a{display:inline-block;margin-top:16px;padding:11px 22px;background:#fff;color:var(--primary);border-radius:6px;font-size:15px;font-weight:600;line-height:1.3;transition:background-color .25s,color .25s}
+.cert-gsa a:hover{background:var(--highlight);color:var(--foreground)}
+@media (width <= 1024px){.cert-logos{grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 24px}.cert-logos img{height:130px}}
+@media (width <= 640px){.cert-logos{grid-template-columns:repeat(2,minmax(0,1fr))}.cert-logos img{height:110px}.cert-gsa{grid-column:1 / -1}}
+.hero-kicker{margin:0 0 14px;max-width:780px;color:#fff;font-size:18px;font-weight:800;line-height:1.4;letter-spacing:.005em}
+.inner-hero-content .hero-kicker.hero-kicker{margin:0 0 14px;max-width:780px;color:#fff;font-size:18px;font-weight:800;line-height:1.4}
+
+/* field icons */
+.contact-form input[name="firstName"]{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2720%27%20height%3D%2720%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%232563c4%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M20%2021v-2a4%204%200%200%200-4-4H8a4%204%200%200%200-4%204v2%27%2F%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%277%27%20r%3D%274%27%2F%3E%3C%2Fsvg%3E");background-repeat:no-repeat;background-position:16px center;padding-left:48px}
+.contact-form input[name="lastName"]{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2720%27%20height%3D%2720%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%232563c4%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M20%2021v-2a4%204%200%200%200-4-4H8a4%204%200%200%200-4%204v2%27%2F%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%277%27%20r%3D%274%27%2F%3E%3C%2Fsvg%3E");background-repeat:no-repeat;background-position:16px center;padding-left:48px}
+.contact-form input[name="email"]{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2720%27%20height%3D%2720%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%232563c4%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Crect%20width%3D%2720%27%20height%3D%2716%27%20x%3D%272%27%20y%3D%274%27%20rx%3D%272%27%2F%3E%3Cpath%20d%3D%27m22%207-8.97%205.7a1.94%201.94%200%200%201-2.06%200L2%207%27%2F%3E%3C%2Fsvg%3E");background-repeat:no-repeat;background-position:16px center;padding-left:48px}
+.contact-form input[name="phone"]{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2720%27%20height%3D%2720%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%232563c4%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M22%2016.92v3a2%202%200%200%201-2.18%202%2019.79%2019.79%200%200%201-8.63-3.07%2019.5%2019.5%200%200%201-6-6%2019.79%2019.79%200%200%201-3.07-8.67A2%202%200%200%201%204.11%202h3a2%202%200%200%201%202%201.72%2012.84%2012.84%200%200%200%20.7%202.81%202%202%200%200%201-.45%202.11L8.09%209.91a16%2016%200%200%200%206%206l1.27-1.27a2%202%200%200%201%202.11-.45%2012.84%2012.84%200%200%200%202.81.7A2%202%200%200%201%2022%2016.92z%27%2F%3E%3C%2Fsvg%3E");background-repeat:no-repeat;background-position:16px center;padding-left:48px}
+.contact-form input[name="company"]{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2720%27%20height%3D%2720%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%232563c4%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Crect%20width%3D%2716%27%20height%3D%2720%27%20x%3D%274%27%20y%3D%272%27%20rx%3D%272%27%2F%3E%3Cpath%20d%3D%27M9%2022v-4h6v4M8%206h.01M16%206h.01M12%206h.01M12%2010h.01M12%2014h.01M16%2010h.01M16%2014h.01M8%2010h.01M8%2014h.01%27%2F%3E%3C%2Fsvg%3E");background-repeat:no-repeat;background-position:16px center;padding-left:48px}
+.contact-form input[name="city"]{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2720%27%20height%3D%2720%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%232563c4%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M20%2010c0%206-8%2012-8%2012S4%2016%204%2010a8%208%200%200%201%2016%200Z%27%2F%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%2710%27%20r%3D%273%27%2F%3E%3C%2Fsvg%3E");background-repeat:no-repeat;background-position:16px center;padding-left:48px}
+
+/* ===== Contact and enquiry forms: refined ===== */
+.form-step{display:flex;align-items:center;gap:14px;margin:0 0 18px;color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.form-step::after{content:"";flex:1;height:1px;background:var(--border)}
+.contact-form .form-step:not(:first-child){margin-top:38px}
+.contact-form input:not([type=checkbox]):not([type=radio]):not([type=submit]),.contact-form select,.contact-form textarea{background-color:#f5f7fb;border:1px solid #e1e7f2;border-radius:10px;padding-top:15px;padding-bottom:15px;font-size:16px}
+.contact-form input:not([type=checkbox]):not([type=radio]):not([type=submit]),.contact-form select{height:56px}
+.contact-form input:not([type=checkbox]):not([type=radio]):not([type=submit]):focus,.contact-form select:focus,.contact-form textarea:focus{background-color:#fff}
+.contact-form label{font-size:13px;letter-spacing:.02em}
+/* ===== Contact page layout ===== */
+.contact-split{padding-top:72px;padding-bottom:56px}
+.contact-card{display:grid;grid-template-columns:minmax(300px,.8fr) minmax(0,1.5fr);border-radius:18px;overflow:hidden;background:#fff;border:1px solid var(--border);box-shadow:0 40px 90px -50px rgba(15,35,80,.45)}
+.contact-info{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:32px;padding:54px 44px;color:#fff;background:linear-gradient(160deg,var(--primary),color-mix(in oklab,var(--primary) 68%,#000))}
+.contact-info::after{content:"";position:absolute;right:-100px;bottom:-100px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,.06)}
+.contact-brand{margin:0}
+.contact-brand strong{display:block;font-size:32px;font-weight:900;letter-spacing:-.01em;line-height:1.1}
+.contact-brand span{display:block;margin-top:8px;color:var(--highlight);font-size:15px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.contact-lead{margin:0;color:rgba(255,255,255,.86);font-size:16.5px;line-height:1.7}
+.contact-list{position:relative;z-index:1;display:grid;gap:22px;margin:0;padding:0;list-style:none}
+.contact-list li{display:flex;align-items:center;gap:16px}
+.contact-list .ci{flex:none;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.13)}
+.contact-list .ci svg{width:21px;height:21px;color:#fff}
+.contact-list small{display:block;margin-bottom:3px;color:var(--highlight);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.contact-list a,.contact-list .v{display:block;color:#fff;font-size:17px;font-weight:700;line-height:1.4}
+.contact-list a:hover{text-decoration:underline;text-underline-offset:4px}
+.contact-formwrap{padding:54px 50px}
+.contact-formhead h2{margin:0;font-size:30px;font-weight:850;letter-spacing:-.01em;line-height:1.15}
+.contact-formhead p{margin:10px 0 32px;color:var(--muted-foreground);font-size:16.5px;line-height:1.6}
+.contact-split .contact-form{max-width:none;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}
+.contact-map{line-height:0;border-top:1px solid var(--border)}
+.contact-map iframe{display:block;width:100%;height:420px;border:0}
+@media (width <= 980px){.contact-card{grid-template-columns:minmax(0,1fr)}.contact-info{padding:40px 28px}.contact-formwrap{padding:38px 24px}.contact-map iframe{height:320px}}
+/* ===== FAQ band: more generous vertical spacing ===== */
+.faq-band{padding-top:96px;padding-bottom:104px}
+.faq-section{gap:56px}
+.faq-section > div:first-child{max-width:880px}
+.faq-section > div:first-child .eyebrow{margin-bottom:22px}
+.faq-section > div:first-child h2{margin-bottom:18px}
+.faq-section > div:first-child > p:not(.eyebrow){margin-top:0;font-size:17.5px;line-height:1.9;color:var(--muted-foreground)}
+.faq-section > div:last-child{max-width:940px}
+.faq summary{padding:28px 26px}
+.faq p{padding:2px 26px 32px;line-height:1.85}
+@media (width <= 640px){.faq-band{padding-top:64px;padding-bottom:72px}.faq-section{gap:36px}.faq summary{padding:22px 16px}.faq p{padding:2px 16px 26px}}
+/* ===== Form labels live inside the fields ===== */
+.contact-form .sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.contact-form label{position:relative}
+.contact-form .wpcf7-form-control-wrap{margin-top:0}
+.contact-form label > input,.contact-form label > select,.contact-form label > textarea{margin-top:0}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:#6b7790;font-weight:500;opacity:1}
+.contact-form select:has(option[value=""]:checked){color:#6b7790;font-weight:500}
+.contact-form .details{margin-top:0}
+.contact-form .form-grid + .form-step,.contact-form .form-step{margin-top:34px}
+.contact-form .form-step:first-child{margin-top:0}
+/* ===== Compact forms, shorter banners, body text one point smaller ===== */
+/* forms */
+.contact-form input:not([type=checkbox]):not([type=radio]):not([type=submit]),.contact-form select{height:46px;padding-top:10px;padding-bottom:10px;font-size:15px;border-radius:9px}
+.contact-form textarea{min-height:104px;padding-top:12px;padding-bottom:12px;font-size:15px;border-radius:9px}
+.contact-form select{padding-right:40px;background-position:right 14px center}
+.contact-form input[name="firstName"],.contact-form input[name="lastName"],.contact-form input[name="email"],.contact-form input[name="phone"],.contact-form input[name="company"],.contact-form input[name="city"]{padding-left:42px;background-position:14px center;background-size:18px}
+.contact-form .form-grid{gap:14px 16px}
+.form-step{margin-bottom:14px;font-size:11px}
+.contact-form .form-step:not(:first-child),.contact-form .form-grid + .form-step,.contact-form .form-step{margin-top:24px}
+.contact-form .form-step:first-child{margin-top:0}
+.contact-form input::placeholder,.contact-form textarea::placeholder{font-size:14.5px}
+.contact-form .wpcf7-submit,.contact-form > button[type=submit]{width:60%;min-width:240px;height:34px;margin-top:20px;border-radius:7px;font-size:13px;padding:0 18px;gap:8px}
+.contact-form .wpcf7-submit svg,.contact-form > button[type=submit] svg{width:14px;height:14px}
+.contact-form{padding:32px 34px 30px}
+.contact-split .contact-form{padding:0}
+.contact-formwrap{padding:38px 40px}
+.contact-formhead h2{font-size:24px}
+.contact-formhead p{margin:6px 0 22px;font-size:15px}
+.contact-info{padding:40px 34px;gap:26px}
+.contact-brand strong{font-size:27px}
+.contact-brand span{font-size:13px}
+.contact-lead{font-size:15px;line-height:1.65}
+.contact-list{gap:16px}
+.contact-list .ci{width:42px;height:42px}
+.contact-list .ci svg{width:19px;height:19px}
+.contact-list a,.contact-list .v{font-size:15.5px}
+.contact-split{padding-top:56px;padding-bottom:44px}
+.contact-map iframe{height:340px}
+@media (width <= 640px){.contact-form{padding:22px 16px}.contact-formwrap{padding:28px 18px}.contact-form .wpcf7-submit,.contact-form > button[type=submit]{width:100%}}
+/* banners */
+.inner-hero,.inner-hero-content{min-height:340px}
+@media (width <= 640px){.inner-hero,.inner-hero-content{min-height:300px}}
+/* body text, one point (about 1px) smaller than before */
+body{font-size:16px}
+.image-tile p{font-size:14px}
+.section-head > p:last-child:not(.eyebrow){font-size:16px}
+.intro-copy .section-head > p:last-child:not(.eyebrow){font-size:15px}
+.intro-badge{font-size:13px}
+.intro-stat span{font-size:12.5px}
+.value-grid p{font-size:13px}
+.credential-grid p{font-size:14px}
+.founder-body{font-size:15.5px}
+.lead{font-size:18px}
+.internal-intro > p{font-size:18px}
+.capability-grid p{font-size:15px}
+.process-grid p{font-size:14px}
+.problem-list p{font-size:14px}
+.problems-story > p:not(.eyebrow),.faq-section > div:first-child > p:not(.eyebrow){font-size:16px}
+.faq-section > div:first-child > p:not(.eyebrow){font-size:16.5px}
+.highlight-layout li{font-size:16px}
+.office-block strong,.office-block p{font-size:14px}
+.enquiry-note p{font-size:13px}
+.expectation-grid p{font-size:14px}
+.form-confirmation p{font-size:14px}
+.disclosure{font-size:13px}
+.stats-bar span{font-size:12px}
+.cert-strip span{font-size:13px}
+.inner-hero-content > p:not(.eyebrow),.home-hero-content > p:not(.eyebrow){font-size:18px}
+.faq p{font-size:16px}
+@media (width <= 767px){.value-grid p{font-size:12px}.internal-intro > p{font-size:17px}.inner-hero-content > p:not(.eyebrow),.home-hero-content > p:not(.eyebrow){font-size:16px}}
+/* ===== Field text: regular weight, one point smaller, lighter grey; blue border on focus ===== */
+.contact-form input::placeholder,.contact-form textarea::placeholder{font-size:13.5px;font-weight:400;color:#a3acbf;opacity:1}
+.contact-form select:has(option[value=""]:checked){font-size:13.5px;font-weight:400;color:#a3acbf}
+.contact-form select option{font-size:14px;font-weight:400}
+.contact-form input:not([type=checkbox]):not([type=radio]):not([type=submit]):focus,.contact-form select:focus,.contact-form textarea:focus{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 0 0 5px color-mix(in oklab,var(--accent) 14%,transparent);background-color:#fff;outline:none}
+/* Submit button: original height, centered */
+.contact-form .wpcf7-submit,.contact-form > button[type=submit]{height:54px;display:flex;margin-left:auto;margin-right:auto}
+.contact-form .wpcf7-spinner{margin-left:auto;margin-right:auto}
+
+.cert-logos{align-items:stretch;gap:22px}
+.cert-logos figure{background:#fff;border-radius:14px;padding:22px 18px;min-height:190px;box-shadow:0 10px 28px rgba(0,0,0,.18);transition:transform .25s,box-shadow .25s}
+.cert-logos figure:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(0,0,0,.26)}
+.cert-logos img{height:140px;max-width:100%}
+.cert-gsa{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:190px}
+@media (width <= 1024px){.cert-logos figure,.cert-gsa{min-height:170px}.cert-logos img{height:120px}}
+@media (width <= 640px){.cert-logos{gap:16px}.cert-logos figure{min-height:140px;padding:16px 12px}.cert-logos img{height:100px}.cert-gsa{min-height:0;padding-top:6px}}
+
+/* cert stripe: light version */
+.cert-stripe{background:#fff;color:var(--primary);padding:8px 0 56px}
+.page-section + .cert-stripe{margin-top:-34px}
+.cert-stripe h2{color:var(--primary);margin:0 0 28px;font-size:clamp(28px,3vw,40px)}
+.cert-logos{gap:18px;align-items:stretch}
+.cert-logos figure{background:#fff;border:1px solid #dde4f0;border-radius:12px;padding:14px 12px;min-height:128px;box-shadow:none}
+.cert-logos figure:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(29,47,104,.12)}
+.cert-logos img{height:92px}
+.cert-gsa{min-height:128px;border:1px solid #dde4f0;border-radius:12px;padding:14px 12px;color:var(--primary)}
+.cert-gsa strong{font-size:20px}
+.cert-gsa span{font-size:15px;margin-top:4px}
+.cert-gsa a{margin-top:10px;padding:9px 16px;font-size:13px;background:var(--primary);color:#fff}
+.cert-gsa a:hover{background:var(--highlight);color:var(--foreground)}
+@media (width <= 1024px){.cert-logos figure,.cert-gsa{min-height:116px}.cert-logos img{height:84px}}
+@media (width <= 640px){.cert-stripe{padding-bottom:40px}.page-section + .cert-stripe{margin-top:-24px}.cert-logos{gap:12px}.cert-logos figure{min-height:104px}.cert-logos img{height:72px}.cert-gsa{min-height:0;padding:14px 12px}}
+
+/* home tiles: tighter copy, no rule, mobile separation */
+.home .image-tile .accent-rule{display:none}
+.home .image-tile-copy{padding:23px 28px 28px}
+.home .image-tile h3{margin:0 0 8px}
+.home .image-tile p{margin:0}
+.home .image-tile-copy > a{margin-top:auto;padding-top:12px}
+@media (width <= 767px){.home .service-grid,.home .industry-grid{gap:5px;border:0}.home .image-tile{border:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.06)}.home .image-tile-copy{padding:20px 22px 28px}}
+
+/* ===== CTA band: centered ===== */
+.cta-band{position:relative;overflow:hidden;text-align:center;padding:96px 0 100px;background:radial-gradient(900px 380px at 50% 0%,rgba(110,170,255,.28),transparent 70%),radial-gradient(700px 320px at 50% 120%,rgba(110,170,255,.18),transparent 70%),linear-gradient(180deg,#1d2f68 0%,#13214f 100%)}
+.cta-band::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at center,#000 15%,transparent 72%);mask-image:radial-gradient(ellipse at center,#000 15%,transparent 72%);pointer-events:none}
+.cta-band .cta-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;text-align:center}
+.cta-eyebrow{display:inline-flex;align-items:center;gap:16px;margin:0 0 22px;color:var(--highlight);font-size:14px;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
+.cta-eyebrow::before,.cta-eyebrow::after{content:"";width:46px;height:2px;background:linear-gradient(90deg,transparent,var(--highlight))}
+.cta-eyebrow::after{background:linear-gradient(270deg,transparent,var(--highlight))}
+.cta-band h2{margin:0 0 38px;color:#fff;font-size:clamp(36px,5vw,64px);font-weight:850;line-height:1.05;letter-spacing:-.015em;text-align:center}
+.cta-actions{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;align-items:center}
+.cta-actions a{margin:0;min-width:230px;justify-content:center;transition:background-color .25s,color .25s,border-color .25s,transform .25s,box-shadow .25s}
+.cta-actions .cta-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px -10px rgba(0,0,0,.5)}
+.cta-actions .cta-secondary{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.75)}
+.cta-actions .cta-secondary:hover{background:#fff;color:var(--primary);border-color:#fff;transform:translateY(-2px)}
+@media (width <= 640px){.cta-band{padding:68px 0 72px}.cta-eyebrow{font-size:12px;letter-spacing:.16em;gap:10px}.cta-eyebrow::before,.cta-eyebrow::after{width:24px}.cta-actions{flex-direction:column;width:100%}.cta-actions a{width:100%;max-width:340px}}
+/* footer: four columns */
+@media (width > 1024px){.footer-columns{grid-template-columns:repeat(4,1fr)}}
+@media (width <= 1024px){.footer-columns{grid-template-columns:1fr 1fr}}
+/* tick overlay on Why RJY photos */
+.value-image{position:relative}
+.value-image::after{content:"";position:absolute;left:50%;top:50%;width:20px;height:20px;transform:translate(-50%,-50%);opacity:.2;pointer-events:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M2 10.5 7.5 16 18 4' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='square' stroke-linejoin='miter'/%3E%3C/svg%3E") center/20px 20px no-repeat}
+/* ===== Mobile internal hero: centered, spaced, bold title ===== */
+@media (width <= 767px){
+.inner-hero-content{align-items:center;text-align:center;padding-top:44px;padding-bottom:46px}
+.inner-hero-content h1{font-size:23.4px;font-weight:800;line-height:1.2;text-align:center}
+.inner-hero-content > p,.inner-hero-content .hero-kicker.hero-kicker{text-align:center;margin-left:auto;margin-right:auto}
+.inner-hero-content .hero-actions{align-items:center;justify-content:center;width:100%;margin-top:22px}
+.inner-hero-content .hero-actions a{width:85%;max-width:340px;justify-content:center;margin-inline:auto}
+}
+/* ===== Form: darker field borders; compact one-line dropdowns on mobile ===== */
+.contact-form input:not([type=checkbox]):not([type=radio]):not([type=submit]),.contact-form select,.contact-form textarea{border-color:#bcc4d4}
+.contact-form input:hover,.contact-form select:hover,.contact-form textarea:hover{border-color:#9aa5bb}
+.contact-form input:not([type=checkbox]):not([type=radio]):not([type=submit]):focus,.contact-form select:focus,.contact-form textarea:focus{border-color:var(--accent)}
+@media (width <= 767px){
+.contact-form select{width:100%;min-width:100%;font-size:12.5px;padding-left:12px;padding-right:34px;text-overflow:ellipsis;white-space:nowrap;background-position:right 12px center}
+.contact-form select:has(option[value=""]:checked),.contact-form select:focus,.contact-form select:not(:has(option[value=""]:checked)){font-size:12.5px}
+.contact-form select option{font-size:12.5px;white-space:normal}
+}
+/* ===== Mobile: tighter intro to services, wider tile gaps, shorter tile images ===== */
+@media (width <= 767px){
+.intro-facts{border-bottom:0}
+.intro-copy{padding-bottom:26px}
+.page-section.services-home{padding-top:30px}
+.home .service-grid,.home .industry-grid{gap:10px}
+.home .image-tile-media,.service-grid .image-tile-media,.industry-grid .image-tile-media{aspect-ratio:21 / 9}
+}
+/* ===== Home intro: matched text sizes, no blue line above heading ===== */
+.intro-badge,.intro-stat span{font-size:15px;line-height:1.7}
+.intro-copy .section-head .eyebrow:before{display:none}
+.intro-copy .section-head .eyebrow{margin-bottom:10px}
+@media (width <= 767px){
+.intro-copy{padding-top:19px;padding-bottom:13px}
+.page-section.services-home{padding-top:15px}
+}
+/* ===== Home hero ===== */
+.home-hero{border-bottom:0}
+.home-hero .eyebrow{font-size:16.5px}
+.home-hero .hero-actions{margin-top:26px}
+@media (width <= 767px){
+.home-hero-content{align-items:center;text-align:center}
+.home-hero h1,.home-hero-content > p{margin-left:auto;margin-right:auto;text-align:center}
+.home-hero .hero-actions{width:100%;justify-content:center}
+.home-hero .hero-actions a{width:auto;min-width:240px;justify-content:center;margin-inline:auto}
+}
+/* tick: top-left, 60% transparent, 24px */
+.value-image::after{left:14px;top:14px;width:24px;height:24px;transform:none;opacity:.4;background-size:24px 24px}
+
+/* tick overlay removed */
+.value-image::after{content:none;display:none}
+
+/* FAQ questions 5% smaller */
+.faq summary{font-size:18.05px}
+
+.faq summary > span[aria-hidden="true"]{font-size:32.3px}
+
+/* ===== Mobile nav: dividers and blue tap glow ===== */
+.mobile-nav details > div{padding:0 0 12px 0}
+.mobile-nav details > div a{border-bottom:1px solid #e3e6ec;padding:8px 14px;transition:background-color .2s,color .2s,box-shadow .25s}
+.mobile-nav details > div a:last-child{border-bottom:0}
+.mobile-nav details > div a svg{transition:color .2s,transform .2s}
+.mobile-nav details > div a:active,.mobile-nav details > div a:focus-visible,.mobile-nav details > div a.is-tapped{background:var(--accent);color:#fff;box-shadow:0 0 0 1px var(--accent),0 0 18px 2px color-mix(in oklab,var(--accent) 55%,transparent);border-radius:6px;border-bottom-color:transparent;outline:none}
+.mobile-nav details > div a:active svg,.mobile-nav details > div a:focus-visible svg,.mobile-nav details > div a.is-tapped svg{color:#fff;stroke:#fff;transform:translateX(4px)}
+/* ===== Form refinements: full blue frame, sharp edges, lighter greys ===== */
+.contact-form{border:4px solid var(--accent);border-radius:0}
+.contact-split .contact-form{padding:26px 24px;border:4px solid var(--accent);border-radius:0}
+.contact-form input:not([type=checkbox]):not([type=radio]):not([type=submit]),.contact-form select,.contact-form textarea{border-radius:0;background-color:#fafbfd}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:#bcc3d1}
+.contact-form select:has(option[value=""]:checked){color:#bcc3d1}
+.contact-form .wpcf7-submit,.contact-form > button[type=submit]{border-radius:0;font-size:16px}
+.faq p a.faq-contact{color:var(--primary);font-weight:700;text-decoration:none;white-space:nowrap}
+.faq p a.faq-contact:hover{text-decoration:underline;text-underline-offset:3px}
+.contact-methods{display:flex;flex-wrap:wrap;gap:14px 24px}

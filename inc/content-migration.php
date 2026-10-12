@@ -11,22 +11,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 function rjy_group_seed_service_posts() {
 	$services = array(
-		'bas' => array(
+		'building-automation-systems' => array(
 			'title' => __( 'Building Automation Systems', 'rjy-group' ),
 			'excerpt' => __( 'Design, install, optimize, and maintain connected controls that make facilities easier to operate and more efficient.', 'rjy-group' ),
 			'content' => __( "A well-designed building automation system gives facility teams a clear operating view, reliable control, and the information needed to address issues before they interrupt service.\n\nControls integration and upgrades\nSystem commissioning and optimization\nRemote monitoring and diagnostics", 'rjy-group' ),
 		),
-		'cybersecurity-ot-ics' => array(
+		'cyber-security-for-ot-and-ics' => array(
 			'title' => __( 'Cyber Security for OT and ICS', 'rjy-group' ),
 			'excerpt' => __( 'Secure connected building systems that keep facilities safe, productive, and online.', 'rjy-group' ),
 			'content' => __( "Operational technology requires a practical security approach that respects uptime, safety, legacy equipment, vendor access, and the realities of facility operations.\n\nOT and ICS risk assessments\nNetwork segmentation guidance\nSecure controls lifecycle support", 'rjy-group' ),
 		),
-		'hvac' => array(
+		'hvac-systems' => array(
 			'title' => __( 'HVAC Systems', 'rjy-group' ),
 			'excerpt' => __( 'Preventive maintenance, repair, and performance services for complex HVAC and chiller systems.', 'rjy-group' ),
 			'content' => __( "HVAC reliability starts with disciplined maintenance, informed diagnostics, and work planned around the needs of the occupied facility.\n\nPreventive and predictive maintenance\nChiller and central plant service\nEfficiency and reliability improvements", 'rjy-group' ),
 		),
-		'generators' => array(
+		'generator-services' => array(
 			'title' => __( 'Generator Services', 'rjy-group' ),
 			'excerpt' => __( 'Proactive maintenance, testing, and repair programs for mission-critical standby power systems.', 'rjy-group' ),
 			'content' => __( "Standby power depends on routine attention to the complete system, from controls and batteries to fuel, transfer equipment, cooling, and documented testing.\n\nLoad-bank testing coordination\nPreventive maintenance\nEmergency diagnostics and repair", 'rjy-group' ),
@@ -73,21 +73,20 @@ function rjy_group_seed_service_posts() {
 function rjy_group_seed_standard_pages() {
 	$pages = array(
 		'about' => array( __( 'About', 'rjy-group' ), __( 'RJY Group is a Houston-based, veteran-owned facilities and infrastructure partner built around service, discipline, and measurable performance.', 'rjy-group' ) ),
-		'about/overview' => array( __( 'Company Overview', 'rjy-group' ), __( 'RJY Group supports the systems behind safe, reliable, and efficient facilities. Our connected approach brings technical expertise and disciplined delivery to building automation, cybersecurity, HVAC, standby power, staffing, and water treatment.', 'rjy-group' ) ),
+		'about/about-rjy-group-houston' => array( __( 'Company Overview', 'rjy-group' ), __( 'RJY Group supports the systems behind safe, reliable, and efficient facilities. Our connected approach brings technical expertise and disciplined delivery to building automation, cybersecurity, HVAC, standby power, staffing, and water treatment.', 'rjy-group' ) ),
 		'about/why-rjy-group' => array( __( 'Why RJY Group', 'rjy-group' ), __( 'One responsive team connects facilities expertise, operational technology security, and accountable project delivery. Recommendations account for occupants, schedules, risk, and the mission of the facility.', 'rjy-group' ) ),
 		'mission-core-values' => array( __( 'Mission & Core Values', 'rjy-group' ), __( 'RJY Group exists to strengthen facility performance through technical discipline, responsive service, and responsible partnership. Service, integrity, discipline, and impact guide every engagement.', 'rjy-group' ) ),
 		'about/founder' => array( __( 'About the Founder', 'rjy-group' ), __( 'Richard J. Young founded RJY Group around the belief that critical facilities deserve disciplined technical work, responsive communication, and a partner that treats uptime as a responsibility.', 'rjy-group' ) ),
-		'about/leadership' => array( __( 'Leadership Team', 'rjy-group' ), __( 'RJY Group leadership keeps technical quality, responsive service, and responsible execution aligned from the first conversation through project closeout.', 'rjy-group' ) ),
 		'about/certifications' => array( __( 'Certifications & Accreditations', 'rjy-group' ), __( 'RJY Group maintains company and leadership credentials relevant to facilities work and public-sector procurement. Current documentation can be discussed during qualification and proposal review.', 'rjy-group' ) ),
 		'about/federal-capabilities' => array( __( 'Federal & Regional Capabilities', 'rjy-group' ), __( 'RJY Group brings connected facility capabilities, veteran-led service, and clear documentation to organizations with formal procurement and operational requirements.', 'rjy-group' ) ),
 		'about/awards-press' => array( __( 'Awards & Press', 'rjy-group' ), __( 'This is the official location for verified company announcements, earned recognition, and media resources. Contact RJY Group for current information or interview requests.', 'rjy-group' ) ),
 		'services' => array( __( 'Our Services', 'rjy-group' ), __( 'One accountable partner across the lifecycle of mechanical, electrical, controls, and operational technology systems.', 'rjy-group' ) ),
 		'industries' => array( __( 'Industries We Serve', 'rjy-group' ), __( 'Facilities expertise for organizations where safety, continuity, and accountability cannot be compromised.', 'rjy-group' ) ),
-		'industries/healthcare-hospitals' => array( __( 'Healthcare & Hospitals', 'rjy-group' ), __( 'Facilities support designed around patient safety, compliance, and uninterrupted clinical operations.', 'rjy-group' ) ),
-		'industries/government-public-safety' => array( __( 'Government & Public Safety', 'rjy-group' ), __( 'Disciplined building support for agencies, civic facilities, and emergency operations.', 'rjy-group' ) ),
-		'industries/industrial-commercial' => array( __( 'Industrial & Commercial Campuses', 'rjy-group' ), __( 'Integrated facility programs that align uptime, efficiency, security, and occupant needs across complex properties.', 'rjy-group' ) ),
+		'industries/healthcare-and-hospitals' => array( __( 'Healthcare & Hospitals', 'rjy-group' ), __( 'Facilities support designed around patient safety, compliance, and uninterrupted clinical operations.', 'rjy-group' ) ),
+		'industries/government-and-public-safety' => array( __( 'Government & Public Safety', 'rjy-group' ), __( 'Disciplined building support for agencies, civic facilities, and emergency operations.', 'rjy-group' ) ),
+		'industries/industrial-and-commercial-campuses' => array( __( 'Industrial & Commercial Campuses', 'rjy-group' ), __( 'Integrated facility programs that align uptime, efficiency, security, and occupant needs across complex properties.', 'rjy-group' ) ),
 		'industries/higher-education' => array( __( 'Higher Education', 'rjy-group' ), __( 'Reliable, efficient facilities support across academic, research, athletics, and residential buildings.', 'rjy-group' ) ),
-		'industries/transportation-utilities' => array( __( 'Transportation & Utilities', 'rjy-group' ), __( 'Resilient facility operations for transit, logistics, and utility infrastructure.', 'rjy-group' ) ),
+		'industries/transportation-and-utilities' => array( __( 'Transportation & Utilities', 'rjy-group' ), __( 'Resilient facility operations for transit, logistics, and utility infrastructure.', 'rjy-group' ) ),
 		'support' => array( __( 'Support', 'rjy-group' ), __( 'Clear answers and practical support for facility teams, technical leaders, and procurement stakeholders.', 'rjy-group' ) ),
 		'support/request-quote' => array( __( 'Request an Inspection', 'rjy-group' ), __( 'Tell us about your facility, system, timing, and current concern. An RJY Group representative can follow up to clarify scope and the most practical next step.', 'rjy-group' ) ),
 		'support/contact' => array( __( 'Contact Support', 'rjy-group' ), __( 'Share the facility, affected system, current condition, and preferred contact so we can route your request effectively. Do not use this website form for emergencies.', 'rjy-group' ) ),
