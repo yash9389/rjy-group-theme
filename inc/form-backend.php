@@ -78,6 +78,8 @@ function rjy_group_contact_form_submission() {
 	$company = isset( $_POST['company'] ) ? sanitize_text_field( wp_unslash( $_POST['company'] ) ) : '';
 	$service = isset( $_POST['service'] ) ? sanitize_text_field( wp_unslash( $_POST['service'] ) ) : '';
 	$facility = isset( $_POST['facility'] ) ? sanitize_text_field( wp_unslash( $_POST['facility'] ) ) : '';
+	$city = isset( $_POST['city'] ) ? sanitize_text_field( wp_unslash( $_POST['city'] ) ) : '';
+	$industry = isset( $_POST['industry'] ) ? sanitize_text_field( wp_unslash( $_POST['industry'] ) ) : '';
 	$message = isset( $_POST['message'] ) ? sanitize_textarea_field( wp_unslash( $_POST['message'] ) ) : '';
 
 	if ( ! $name || ! is_email( $email ) || ! $phone || ! $message ) {
@@ -94,6 +96,12 @@ function rjy_group_contact_form_submission() {
 	$body .= '<p><strong>' . esc_html__( 'Phone', 'rjy-group' ) . ':</strong> ' . esc_html( $phone ) . '</p>';
 	if ( $company ) {
 		$body .= '<p><strong>' . esc_html__( 'Company', 'rjy-group' ) . ':</strong> ' . esc_html( $company ) . '</p>';
+	}
+	if ( $city ) {
+		$body .= '<p><strong>' . esc_html__( 'City', 'rjy-group' ) . ':</strong> ' . esc_html( $city ) . '</p>';
+	}
+	if ( $industry ) {
+		$body .= '<p><strong>' . esc_html__( 'Industry', 'rjy-group' ) . ':</strong> ' . esc_html( $industry ) . '</p>';
 	}
 	if ( $service ) {
 		$body .= '<p><strong>' . esc_html__( 'Service interest', 'rjy-group' ) . ':</strong> ' . esc_html( $service ) . '</p>';
@@ -124,6 +132,8 @@ function rjy_group_contact_form_submission() {
 	update_post_meta( $stored_id, '_rjy_contact_phone', $phone );
 	update_post_meta( $stored_id, '_rjy_contact_company', $company );
 	update_post_meta( $stored_id, '_rjy_contact_service', $service );
+	update_post_meta( $stored_id, '_rjy_contact_city', $city );
+	update_post_meta( $stored_id, '_rjy_contact_industry', $industry );
 	update_post_meta( $stored_id, '_rjy_contact_facility', $facility );
 
 	$site_email = sanitize_email( get_option( 'admin_email' ) );
@@ -145,7 +155,7 @@ function rjy_group_contact_form_markup( $args = array() ) {
 	$defaults = array(
 		'action' => admin_url( 'admin-post.php' ),
 		'method' => 'post',
-		'submit_text' => __( 'Prepare Enquiry', 'rjy-group' ),
+		'submit_text' => __( 'Send This to the Experts', 'rjy-group' ),
 		'show_service' => true,
 	);
 	$args = wp_parse_args( $args, $defaults );
@@ -179,7 +189,7 @@ function rjy_group_contact_form_markup( $args = array() ) {
 					<option value="<?php esc_attr_e( 'HVAC Systems', 'rjy-group' ); ?>"><?php esc_html_e( 'HVAC Systems', 'rjy-group' ); ?></option>
 					<option value="<?php esc_attr_e( 'Generator Services', 'rjy-group' ); ?>"><?php esc_html_e( 'Generator Services', 'rjy-group' ); ?></option>
 					<option value="<?php esc_attr_e( 'Support Staffing', 'rjy-group' ); ?>"><?php esc_html_e( 'Support Staffing', 'rjy-group' ); ?></option>
-					<option value="<?php esc_attr_e( 'Water Treatment', 'rjy-group' ); ?>"><?php esc_html_e( 'Water Treatment', 'rjy-group' ); ?></option>
+					<option value="<?php esc_attr_e( 'Chiller Preventive Maintenance', 'rjy-group' ); ?>"><?php esc_html_e( 'Chiller Preventive Maintenance', 'rjy-group' ); ?></option>
 				</select>
 			</label>
 			<?php endif; ?>
