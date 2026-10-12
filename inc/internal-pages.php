@@ -33,7 +33,7 @@ function rjy_group_services() {
 		array( 'title' => 'HVAC Systems', 'path' => '/services/hvac-systems', 'description' => 'Keep critical heating and cooling assets reliable in every season.', 'image' => 'hvac' ),
 		array( 'title' => 'Generators', 'path' => '/services/generator-services', 'description' => 'Maintain resilient standby power through testing, service, and repair.', 'image' => 'generator' ),
 		array( 'title' => 'Support Staffing', 'path' => '/services/support-staffing', 'description' => 'Extend your facilities team with qualified, responsive technical talent.', 'image' => 'staffing' ),
-		array( 'title' => 'Water Treatment', 'path' => '/services/water-treatment', 'description' => 'Protect equipment, efficiency, and water quality across closed-loop systems.', 'image' => 'water' ),
+		array( 'title' => 'Chiller Preventive Maintenance', 'path' => '/services/chiller-preventive-maintenance', 'description' => 'Keep chillers and central plants efficient and reliable through every cooling season.', 'image' => 'chiller' ),
 	);
 }
 
@@ -44,7 +44,6 @@ function rjy_group_industries() {
 		array( 'title' => 'Industrial & Commercial Campuses', 'path' => '/industries/industrial-and-commercial-campuses', 'description' => 'Integrated maintenance and security for complex operating environments.', 'image' => 'commercialCampus' ),
 		array( 'title' => 'Higher Education', 'path' => '/industries/higher-education', 'description' => 'Comfort, reliability, and security across academic and residential buildings.', 'image' => 'higherEducation' ),
 		array( 'title' => 'Data Centers', 'path' => '/industries/data-center', 'description' => 'Reliable infrastructure for critical operations.', 'image' => 'dataCenter' ),
-		array( 'title' => 'Chillers', 'path' => '/industries/chiller', 'description' => 'Reliable chiller and central cooling plant performance.', 'image' => 'chiller' ),
 		array( 'title' => 'Transportation & Utilities', 'path' => '/industries/transportation-and-utilities', 'description' => 'Resilient infrastructure that keeps people, power, and services moving.', 'image' => 'transportUtilities' ),
 	);
 }
@@ -109,7 +108,7 @@ function rjy_group_tile_grid( $kind ) {
 
 /** ContactForm, wired to the WordPress enquiry handler in inc/form-backend.php. */
 function rjy_group_industry_options() {
-	return array( 'Healthcare and Hospitals', 'Government and Public Safety', 'Industrial and Commercial Campuses', 'Higher Education', 'Data Centers', 'Transportation and Utilities', 'Chiller Plants', 'Other' );
+	return array( 'Healthcare and Hospitals', 'Government and Public Safety', 'Industrial and Commercial Campuses', 'Higher Education', 'Data Centers', 'Transportation and Utilities', 'Other' );
 }
 
 function rjy_group_contact_form( $page = array(), $compact = false ) {

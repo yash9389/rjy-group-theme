@@ -367,9 +367,9 @@
                 "description": "Improve how HVAC equipment is scheduled, sequenced, and monitored."
             },
             {
-                "path": "/services/water-treatment",
-                "label": "Protect heat transfer",
-                "description": "Address water conditions that affect mechanical performance."
+                "path": "/services/chiller-preventive-maintenance",
+                "label": "Chiller preventive maintenance",
+                "description": "Keep chillers efficient and reliable through every cooling season."
             },
             {
                 "path": "/support/knowledge-center/article-3",
@@ -649,106 +649,106 @@
         "problemsTitle": "Support Staffing",
         "enquiryNote": "If you need urgent coverage today, call our Houston office directly. This form is for planning your staffing needs and longer-term coverage."
     },
-    "/services/water-treatment": {
-        "path": "/services/water-treatment",
-        "title": "Water Treatment",
-        "eyebrow": "Protecting equipment from the inside",
-        "description": "Closed-loop and cooling tower water treatment programs that protect equipment, efficiency, and water quality.",
+    "/services/chiller-preventive-maintenance": {
+        "path": "/services/chiller-preventive-maintenance",
+        "title": "Chiller Preventive Maintenance",
+        "eyebrow": "The heart of central cooling",
+        "description": "Preventive maintenance for chillers and central plants, so facilities that cannot lose cooling stay efficient and reliable.",
         "type": "service",
-        "image": "water",
-        "imageAlt": "Water treatment specialist sampling a commercial closed-loop system",
-        "introTitle": "Good water protects expensive equipment.",
-        "intro": "Water quality quietly decides how long chillers, boilers, and heat exchangers last and how efficiently they run. A consistent treatment program prevents scale, corrosion, and biological growth, and gives you evidence of what is really happening inside your systems.",
+        "image": "chiller",
+        "imageAlt": "RJY Group technicians testing a large water-cooled chiller in a central plant",
+        "introTitle": "Keep the plant running well, season after season.",
+        "intro": "Chillers do the heavy lifting for large buildings and campuses. When they run well, nobody notices. When they do not, everyone does. We help operators maintain chillers and the plants around them, find efficiency losses, and plan repairs and renewals before a failure forces the decision.",
         "highlights": [
-            "Closed-loop treatment programs",
-            "Cooling tower treatment",
-            "Regular testing and reporting",
-            "Program review and optimization"
+            "Chiller service and performance checks",
+            "Central plant optimization",
+            "Scheduled preventive maintenance",
+            "Renewal and replacement planning"
         ],
         "cards": [
             {
-                "title": "Programs built for your systems",
-                "copy": "Treatment is matched to your equipment, makeup water, and operating conditions."
+                "title": "Service built around condition",
+                "copy": "Inspections and maintenance focus on how equipment is actually running, not just on calendar intervals."
             },
             {
-                "title": "Testing you can rely on",
-                "copy": "Regular sampling and clear reports show trends, not just single readings."
+                "title": "Plants tuned as systems",
+                "copy": "Chillers, pumps, towers, and controls are reviewed together, because efficiency is lost between components."
             },
             {
-                "title": "Protecting efficiency and life",
-                "copy": "Cleaner heat transfer surfaces and less corrosion mean lower energy use and longer equipment life."
+                "title": "Honest renewal advice",
+                "copy": "We explain the cost of keeping aging equipment versus replacing it, and the risks of waiting."
             }
         ],
         "process": [
             {
-                "title": "Sample",
-                "copy": "Test the water and review the system and its history."
+                "title": "Inspect",
+                "copy": "Review chiller condition, operating data, and service history."
             },
             {
-                "title": "Treat",
-                "copy": "Set up or adjust a program with clear targets and responsibilities."
+                "title": "Plan",
+                "copy": "Set service and improvement priorities with your team."
             },
             {
-                "title": "Review",
-                "copy": "Report results, track trends, and refine the program over time."
+                "title": "Maintain",
+                "copy": "Complete documented work and confirm performance."
             }
         ],
         "outcomes": [
-            "Cleaner, more efficient heat transfer",
-            "Lower risk of corrosion and scale damage",
-            "Clear records of water conditions"
+            "More dependable cooling",
+            "Lower energy waste",
+            "A clear plan for aging equipment"
         ],
-        "ctaLabel": "Request an Inspection",
+        "ctaLabel": "Request a Chiller Inspection",
         "ctaPath": "/support/request-quote",
         "problems": [
             {
-                "title": "Scale and fouling",
-                "copy": "Deposits insulate heat transfer surfaces and push energy use up. Good treatment keeps them in check."
+                "title": "Efficiency that has slipped",
+                "copy": "Fouling, poor staging, and drifting setpoints can raise energy use without anyone noticing. Trend review finds it."
             },
             {
-                "title": "Corrosion in piping and equipment",
-                "copy": "Corrosion shortens equipment life and can cause leaks. Monitoring and inhibitors protect critical assets."
+                "title": "Failures that come in peak season",
+                "copy": "Preparing before summer reduces the odds of losing cooling when it matters most."
             },
             {
-                "title": "Biological growth in cooling towers",
-                "copy": "Towers need consistent attention to manage biological risk. We help set up routines and records that hold up."
+                "title": "Aging chillers with no plan",
+                "copy": "We help you understand remaining life and build a budget-friendly path for renewal."
             },
             {
-                "title": "Treatment that nobody reviews",
-                "copy": "A program set years ago may no longer fit the system. Periodic review keeps it effective and cost-conscious."
+                "title": "Small issues left to grow",
+                "copy": "Routine inspections, oil and refrigerant checks, and tube cleaning catch wear early, before it turns into an unplanned outage."
             }
         ],
-        "supportImage": "waterDetail",
-        "supportImageAlt": "Water treatment specialist sampling a cooling system",
+        "supportImage": "chillerDetail",
+        "supportImageAlt": "Plant operator monitoring chiller plant performance from a control room",
         "related": [
             {
                 "path": "/services/hvac-systems",
                 "label": "HVAC systems",
-                "description": "Protect the equipment that water treatment supports."
+                "description": "Maintenance and repair across the cooling system."
             },
             {
-                "path": "/industries/chiller",
-                "label": "Chiller plants",
-                "description": "Keep central cooling clean, efficient, and reliable."
+                "path": "/services/building-automation-systems",
+                "label": "Plant controls",
+                "description": "Improve how chillers are staged, sequenced, and monitored."
             },
             {
                 "path": "/support/knowledge-center/article-3",
                 "label": "Peak season preparation",
-                "description": "A readiness approach for critical equipment."
+                "description": "Be ready before demand rises."
             }
         ],
         "faqs": [
             {
-                "question": "How often is water testing needed?",
-                "answer": "Frequency depends on the system type and risk. A closed loop may be checked less often than a cooling tower. We will set a schedule that matches your systems and requirements."
+                "question": "How can we tell if our chillers are losing efficiency?",
+                "answer": "Trend data tells much of the story: power draw against load, approach temperatures, and runtime. We review those with condition findings to show where performance has slipped."
             },
             {
-                "question": "Do you treat both closed loops and cooling towers?",
-                "answer": "Yes. The approaches differ, so we plan each program around the specific system and its conditions."
+                "question": "When should we prepare chillers for summer?",
+                "answer": "Early. Starting before the cooling season leaves time for repairs, parts, and testing without pressure."
             },
             {
-                "question": "How does treatment affect energy use?",
-                "answer": "Clean surfaces transfer heat better, so equipment does not have to work as hard. Good treatment is one of the quieter ways to protect efficiency."
+                "question": "Do you advise on repair versus replacement?",
+                "answer": "Yes. We weigh condition, efficiency, parts availability, and the consequence of failure, then explain the options plainly."
             },
             {
                 "question": "How do we get started?",
@@ -759,15 +759,15 @@
                 "answer": "That depends on the scope we agree together, but you can expect clear written records: what we found, what we did, what is still open, and what we recommend next. We confirm deliverables before work begins, so there are no surprises."
             }
         ],
-        "enquiryTitle": "Let’s talk about your water systems.",
-        "enquiryCopy": "Tell us about the systems you operate, how they are treated today, and what concerns you. We will suggest a practical next step.",
-        "enquiryPrompt": "Describe the facility, the systems (closed loop, cooling tower, or both), current treatment, any problems, and what you need.",
-        "phoneCta": "Protect your chillers and cooling towers with a Water Treatment program that works.",
-        "imageFile": "water-treatment-warm.jpg",
-        "supportImageFile": "detail-water-sampling.jpg",
-        "phoneKeyword": "Water Treatment",
-        "problemsTitle": "Water Treatment",
-        "enquiryNote": "If a water system issue is creating an immediate safety or equipment risk, follow your site procedure and call our Houston office. This form is for treatment programs, testing, and planning."
+        "enquiryTitle": "Let’s look at your chiller plant.",
+        "enquiryCopy": "Tell us about the plant, the equipment, and what is concerning you. We will help you work out a clear next step.",
+        "enquiryPrompt": "Describe the facility, the chillers and central plant, recent performance or failures, and the outcome you need.",
+        "phoneCta": "Keep your Chiller plant cool, efficient, and ready for peak season.",
+        "imageFile": "detail-hvac-chiller.jpg",
+        "supportImageFile": "detail-chiller-plant-daylight.jpg",
+        "phoneKeyword": "Chiller Preventive Maintenance",
+        "problemsTitle": "Chiller Preventive Maintenance",
+        "enquiryNote": "If a chiller or plant failure is affecting critical cooling right now, follow your site procedure and call our Houston office directly. This form is for inspections, service, and planning."
     },
     "/industries": {
         "path": "/industries",
@@ -1257,8 +1257,8 @@
                 "description": "Comfort and reliability for classrooms and residence halls."
             },
             {
-                "path": "/industries/chiller",
-                "label": "Chiller plants",
+                "path": "/services/chiller-preventive-maintenance",
+                "label": "Chiller preventive maintenance",
                 "description": "Dependable central cooling for the campus."
             },
             {
@@ -1372,8 +1372,8 @@
         "supportImageAlt": "Data center technician",
         "related": [
             {
-                "path": "/industries/chiller",
-                "label": "Chiller plants",
+                "path": "/services/chiller-preventive-maintenance",
+                "label": "Chiller preventive maintenance",
                 "description": "Dependable central cooling."
             },
             {
@@ -3051,125 +3051,5 @@
                 "description": "Read guidance for facility teams."
             }
         ]
-    },
-    "/industries/chiller": {
-        "path": "/industries/chiller",
-        "title": "Chillers",
-        "eyebrow": "The heart of central cooling",
-        "description": "Dependable chiller and central plant performance for facilities that cannot lose cooling.",
-        "type": "industry",
-        "image": "chiller",
-        "imageAlt": "RJY Group technicians testing a large water-cooled chiller in a central plant",
-        "introTitle": "Keep the plant running well, season after season.",
-        "intro": "Chillers do the heavy lifting for large buildings and campuses. When they run well, nobody notices. When they do not, everyone does. We help operators maintain chillers and the plants around them, find efficiency losses, and plan repairs and renewals before a failure forces the decision.",
-        "highlights": [
-            "Chiller service and performance checks",
-            "Central plant optimization",
-            "Water treatment coordination",
-            "Renewal and replacement planning"
-        ],
-        "cards": [
-            {
-                "title": "Service built around condition",
-                "copy": "Inspections and maintenance focus on how equipment is actually running, not just on calendar intervals."
-            },
-            {
-                "title": "Plants tuned as systems",
-                "copy": "Chillers, pumps, towers, and controls are reviewed together, because efficiency is lost between components."
-            },
-            {
-                "title": "Honest renewal advice",
-                "copy": "We explain the cost of keeping aging equipment versus replacing it, and the risks of waiting."
-            }
-        ],
-        "process": [
-            {
-                "title": "Inspect",
-                "copy": "Review chiller condition, operating data, and service history."
-            },
-            {
-                "title": "Plan",
-                "copy": "Set service and improvement priorities with your team."
-            },
-            {
-                "title": "Maintain",
-                "copy": "Complete documented work and confirm performance."
-            }
-        ],
-        "outcomes": [
-            "More dependable cooling",
-            "Lower energy waste",
-            "A clear plan for aging equipment"
-        ],
-        "ctaLabel": "Request a Chiller Inspection",
-        "ctaPath": "/support/request-quote",
-        "problems": [
-            {
-                "title": "Efficiency that has slipped",
-                "copy": "Fouling, poor staging, and drifting setpoints can raise energy use without anyone noticing. Trend review finds it."
-            },
-            {
-                "title": "Failures that come in peak season",
-                "copy": "Preparing before summer reduces the odds of losing cooling when it matters most."
-            },
-            {
-                "title": "Water-side problems",
-                "copy": "Scale and corrosion shorten equipment life. We coordinate with water treatment to protect the plant."
-            },
-            {
-                "title": "Aging chillers with no plan",
-                "copy": "We help you understand remaining life and build a budget-friendly path for renewal."
-            }
-        ],
-        "supportImage": "chillerDetail",
-        "supportImageAlt": "Plant operator monitoring chiller plant performance from a control room",
-        "related": [
-            {
-                "path": "/services/hvac-systems",
-                "label": "HVAC systems",
-                "description": "Maintenance and repair across the cooling system."
-            },
-            {
-                "path": "/services/water-treatment",
-                "label": "Water treatment",
-                "description": "Protect the plant from scale and corrosion."
-            },
-            {
-                "path": "/support/knowledge-center/article-3",
-                "label": "Peak season preparation",
-                "description": "Be ready before demand rises."
-            }
-        ],
-        "faqs": [
-            {
-                "question": "How can we tell if our chillers are losing efficiency?",
-                "answer": "Trend data tells much of the story: power draw against load, approach temperatures, and runtime. We review those with condition findings to show where performance has slipped."
-            },
-            {
-                "question": "When should we prepare chillers for summer?",
-                "answer": "Early. Starting before the cooling season leaves time for repairs, parts, and testing without pressure."
-            },
-            {
-                "question": "Do you advise on repair versus replacement?",
-                "answer": "Yes. We weigh condition, efficiency, parts availability, and the consequence of failure, then explain the options plainly."
-            },
-            {
-                "question": "How do we get started?",
-                "answer": "Send a short note through the enquiry form or call the Houston office. Tell us which facility and system you have in mind and what is prompting the conversation. We will talk it through with you and suggest whether a records review, a site visit, or a scoped proposal makes the most sense."
-            },
-            {
-                "question": "What will we receive when the work is done?",
-                "answer": "That depends on the scope we agree together, but you can expect clear written records: what we found, what we did, what is still open, and what we recommend next. We confirm deliverables before work begins, so there are no surprises."
-            }
-        ],
-        "enquiryTitle": "Let’s look at your chiller plant.",
-        "enquiryCopy": "Tell us about the plant, the equipment, and what is concerning you. We will help you work out a clear next step.",
-        "enquiryPrompt": "Describe the facility, the chillers and central plant, recent performance or failures, and the outcome you need.",
-        "phoneCta": "Keep your Chiller plant cool, efficient, and ready for peak season.",
-        "imageFile": "detail-hvac-chiller.jpg",
-        "supportImageFile": "detail-chiller-plant-daylight.jpg",
-        "phoneKeyword": "Chiller",
-        "problemsTitle": "Chiller Plant Facilities",
-        "enquiryNote": "If a chiller or plant failure is affecting critical cooling right now, follow your site procedure and call our Houston office directly. This form is for inspections, service, and planning."
     }
 }

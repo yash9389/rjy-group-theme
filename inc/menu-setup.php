@@ -16,7 +16,7 @@ function rjy_group_default_menu_items() {
 				array( 'label' => __( 'HVAC Systems', 'rjy-group' ), 'url' => '/services/hvac-systems/' ),
 				array( 'label' => __( 'Generators', 'rjy-group' ), 'url' => '/services/generator-services/' ),
 				array( 'label' => __( 'Support Staffing', 'rjy-group' ), 'url' => '/services/support-staffing/' ),
-				array( 'label' => __( 'Water Treatment', 'rjy-group' ), 'url' => '/services/water-treatment/' ),
+				array( 'label' => __( 'Chiller Preventive Maintenance', 'rjy-group' ), 'url' => '/services/chiller-preventive-maintenance/' ),
 			),
 		),
 		array(

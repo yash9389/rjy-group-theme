@@ -13,6 +13,8 @@ function rjy_group_legacy_redirects() {
 		'industries/industrial-commercial' => 'industries/industrial-and-commercial-campuses',
 		'industries/transportation-utilities' => 'industries/transportation-and-utilities',
 		'about/overview' => 'about/about-rjy-group-houston',
+		'services/water-treatment' => 'services/chiller-preventive-maintenance',
+		'industries/chiller' => 'services/chiller-preventive-maintenance',
 	);
 }
 

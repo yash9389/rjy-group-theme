@@ -36,10 +36,10 @@ function rjy_group_seed_service_posts() {
 			'excerpt' => __( 'Flexible facilities staffing that closes capability gaps and protects service levels.', 'rjy-group' ),
 			'content' => __( "RJY Group helps facility leaders add focused technical capacity while keeping site expectations, safety practices, and reporting requirements at the center.\n\nSkilled technical personnel\nShort-term and sustained coverage\nSite-specific onboarding", 'rjy-group' ),
 		),
-		'water-treatment' => array(
-			'title' => __( 'Water Treatment', 'rjy-group' ),
-			'excerpt' => __( 'Cooling tower and closed-loop programs that reduce corrosion, scale, energy waste, and compliance risk.', 'rjy-group' ),
-			'content' => __( "A consistent treatment program supports heat transfer, equipment life, safe operation, and clearer evidence of system condition over time.\n\nClosed-loop water treatment\nCooling tower programs\nTesting, reporting, and optimization", 'rjy-group' ),
+		'chiller-preventive-maintenance' => array(
+			'title' => __( 'Chiller Preventive Maintenance', 'rjy-group' ),
+			'excerpt' => __( 'Preventive maintenance for chillers and central plants that keeps cooling efficient, reliable, and ready for peak season.', 'rjy-group' ),
+			'content' => __( "Chillers do the heavy lifting for large buildings and campuses. Scheduled inspections and maintenance keep them efficient and catch wear before it becomes an outage.\n\nChiller service and performance checks\nCentral plant optimization\nRenewal and replacement planning", 'rjy-group' ),
 		),
 	);
 	$created = 0;
